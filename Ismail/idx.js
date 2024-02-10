@@ -5,81 +5,65 @@ const addEducational = document.querySelector("#addEducational");
 const selectType = document.querySelector("#selectType");
 const droDown1 = document.querySelector(".droDown1");
 
-const Personal = document.querySelector(".Personal").children;
-const Professional = document.querySelector(".Professional").children;
+const Personal = document.querySelector(".Personal");
+const Professional = document.querySelector(".Professional");
 
-// console.log(document.querySelector('script'));
 
-function twoColumn() {
-  const headColorVal = document.querySelector("#headColor").value;
-  const textColorVal = document.querySelector("#headTextColor").value;
+const cssTemplate = document.querySelector("#cssTemplate");
+const colorChange = document.querySelector(".colorChange");
 
-  let inputValOfName = Personal[1].value;
-  // inputValOfName.style.backgroundColor = textColorVal;
+Personal.addEventListener("keyup", (e) => {
+  console.log(e.target.id);
+  let inputVal = e.target.value
+  if (e.target.id === "personalName") {
+    colorChange.innerHTML = `<h2>${e.target.value}</h2> `;
+  }
+});
 
-  // Updating change color and Name
-  const colorChange = document.querySelector(".colorChange");
-  colorChange.style.backgroundColor = headColorVal;
+// function updateTemplate() {
+//   const headColorVal = document.querySelector("#headColor").value;
+//   const textColorVal = document.querySelector("#headTextColor").value;
 
-  colorChange.innerHTML = `
-  <h2>${inputValOfName}</h2>
-  <p>${Professional[1].value}</p>`;
+//   let inputValOfName = Personal[1].value;
+//   // inputValOfName.style.backgroundColor = textColorVal;
 
-  // Updating Contact Details
-  let number = document.getElementById("number");
-  number.textContent = Personal[3].value;
+//   // Updating change color and Name
+//
+//   colorChange.style.backgroundColor = headColorVal;
 
-  let email = document.getElementById("email");
-  email.textContent = Personal[2].value;
+//   colorChange.innerHTML = `
+//   <h2>${inputValOfName}</h2>
+//   <p>${Professional[1].value}</p>`;
 
-  let location = document.getElementById("location");
-  location.textContent = Personal[4].value;
-}
+//   // Updating Contact Details
+//   let number = document.getElementById("number");
+//   number.textContent = Personal[3].value;
 
-function minimalist() {
-  const headColorVal = document.querySelector("#headColor").value;
-  const textColorVal = document.querySelector("#headTextColor").value;
+//   let email = document.getElementById("email");
+//   email.textContent = Personal[2].value;
 
-  let inputValOfName = Personal[1].value;
-  // inputValOfName.style.backgroundColor = textColorVal;
-
-  // Updating change color and Name
-  const colorChange = document.querySelector(".colorChange");
-  // colorChange.style.backgroundColor = headColorVal;
-
-  colorChange.innerHTML = `
-  <h2>${inputValOfName}</h2>
-  <p>${Professional[1].value}</p>`;
-
-  // Updating Contact Details
-  let number = document.getElementById("number");
-  number.textContent = Personal[3].value;
-
-  let email = document.getElementById("email");
-  email.textContent = Personal[2].value;
-
-  let location = document.getElementById("location");
-  location.textContent = Personal[4].value;
-}
-
-// function cssSwap(inputVal) {
-//   const formStyleSheet = document.querySelector()
-
-//   if(inputVal === 'TwoColumn') {
-
-//   }
+//   let location = document.getElementById("location");
+//   location.textContent = Personal[4].value;
 // }
+
+function cssSwap(inputVal) {
+  if (inputVal === "TwoColumn") {
+    cssTemplate.setAttribute("href", "./twoColumn.css");
+  } else {
+    cssTemplate.setAttribute("href", "./minimalist.css");
+  }
+}
 
 selectType.addEventListener("change", (e) => {
   let inputVal = e.target.value;
   // console.log(inputVal);
-  // cssSwap(inputVal);
+  cssSwap(inputVal);
 
-  if (inputVal === "TwoColumn") {
-    twoColumn();
-  } else if (inputVal === "Minimalist") {
-    minimalist();
-  }
+  // if (inputVal === "TwoColumn") {
+  //   twoColumn();
+  // } else if (inputVal === "Minimalist") {
+  //   minimalist();
+  // }
 });
 
 /******************************************************************************************************
