@@ -83,23 +83,23 @@ document.getElementById("add-row").addEventListener("click", (e)=> {
 
 const tBody = document.getElementById("table-body");
 
-let addNewRow =()=> {
-    const row = document.createElement("tr");
-    row.className = "single-row";
-    row.innerHTML = `<td><input type="text" placeholder="Product name" class="product" id="product"></td>
-                    <td><input type="number" placeholder="0" name="unit" class="unit" id="unit" onkeyup="getInput()"></td>
-                    <td><input type="number" placeholder="0" name="price" class="price" id="price" onkeyup="getInput()"></td>
-                    <td><input type="number" placeholder="0" name="amount" class="amount" id="amount" disabled></td>
-                    <td style="text-align: right;" id="imgg"><span id="img"><img id="image"
-                    src="./images/trash.png" alt="delete_outline" action="delete"></span></td>`
+// let addNewRow =()=> {
+//     const row = document.createElement("tr");
+//     row.className = "single-row";
+//     row.innerHTML = `<td><input type="text" placeholder="Product name" class="product" id="product"></td>
+//                     <td><input type="number" placeholder="0" name="unit" class="unit" id="unit" onkeyup="getInput()"></td>
+//                     <td><input type="number" placeholder="0" name="price" class="price" id="price" onkeyup="getInput()"></td>
+//                     <td><input type="number" placeholder="0" name="amount" class="amount" id="amount" disabled></td>
+//                     <td style="text-align: right;" id="imgg"><span id="img"><img id="image"
+//                     src="./images/trash.png" alt="delete_outline" action="delete"></span></td>`
 
-    tBody.insertBefore(row, tBody.lastElementChild.previousSibling);
-}
+//     tBody.insertBefore(row, tBody.lastElementChild.previousSibling);
+// }
 
-document.getElementById("add-row").addEventListener("click", (e)=> {
-    e.preventDefault();
-    // addNewRow();
-});
+// document.getElementById("add-row").addEventListener("click", (e)=> {
+//     e.preventDefault();
+//     // addNewRow();
+// });
 
 
 getInput =()=> {
@@ -142,3 +142,48 @@ tBody.addEventListener("click", (e)=>{
 delRow =(el)=> {
     el.parentNode.parentNode.parentNode.parentNode.removeChild(el.parentNode.parentNode.parentNode);
 }
+
+
+// print receipt
+
+const btnPrint = document.querySelector(".print");
+btnPrint.addEventListener("click", () => {
+    // let model=document.getElementById("model")
+console.log(window);
+    window.print();
+});
+
+
+// data to be added in model
+var price;
+var quantity;
+var amount;
+var prod_name;
+var ids;
+var tax = 50;
+
+function calculate() {
+//   ids = document.getElementById("ids").value;
+  price = document.getElementById("price").value;
+  quantity = document.getElementById("unit").value;
+  amount = price * quantity;
+  document.getElementById("amount").value = amount;
+
+}
+
+
+function addData() {
+  prod_name = document.getElementById("product").value;
+  price=document.getElementById("price").value
+  quantity=document.getElementById("unit").value
+  document.getElementById('newtr').innerHTML += '<tr><td>'  + prod_name + '</td><td>' + price + '</td> <td>' + quantity + '</td><td>' + amount + '</td></tr>'
+
+  document.getElementById("product").value = "";
+  document.getElementById("price").value = "";
+  document.getElementById("unit").value = "";
+  document.getElementById("amount").value = "";
+
+}
+
+
+
