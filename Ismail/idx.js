@@ -8,15 +8,56 @@ const droDown1 = document.querySelector(".droDown1");
 const Personal = document.querySelector(".Personal");
 const Professional = document.querySelector(".Professional");
 
-
 const cssTemplate = document.querySelector("#cssTemplate");
 const colorChange = document.querySelector(".colorChange");
 
+/********************************************************************************************
+ * @param
+ * @returns
+ ********************************************************************************************/
+
 Personal.addEventListener("keyup", (e) => {
-  console.log(e.target.id);
-  let inputVal = e.target.value
-  if (e.target.id === "personalName") {
-    colorChange.innerHTML = `<h2>${e.target.value}</h2> `;
+  // console.log(e.target.id);
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "personalName") {
+    colorChange.children[0].innerHTML = inputVal;
+  } else if (inputId === "personalEmail") {
+    let number = document.getElementById("email");
+    number.textContent = inputVal;
+  } else if (inputId === "personalPhone") {
+    let number = document.getElementById("number");
+    number.textContent = inputVal;
+  } else if (inputId === "personalCity") {
+    let location = document.getElementById("location");
+    location.textContent = inputVal;
+  }
+});
+
+/************************************************************************************************
+ *
+ ************************************************************************************************/
+
+Professional.addEventListener("keyup", (e) => {
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "ProfessionalJob") {
+    colorChange.children[1].innerHTML = inputVal;
+  } else if (inputId === "ProfessionalSummary") {
+    let addSummary = document.querySelector(".addSummary");
+    addSummary.children[0].innerHTML = inputVal;
+  } else if (inputId == "ProfessionalSkills") {
+    let skillsAddingDynamically = document.querySelector(
+      ".skillsAddingDynamically"
+    );
+
+    let pTag = document.createElement("p");
+    pTag.innerHTML = inputVal;
+    pTag.style.background = "black";
+    // skillsAddingDynamically.children[0].innerHTML = inputVal;
+    skillsAddingDynamically.appendChild(pTag);
   }
 });
 
@@ -58,12 +99,6 @@ selectType.addEventListener("change", (e) => {
   let inputVal = e.target.value;
   // console.log(inputVal);
   cssSwap(inputVal);
-
-  // if (inputVal === "TwoColumn") {
-  //   twoColumn();
-  // } else if (inputVal === "Minimalist") {
-  //   minimalist();
-  // }
 });
 
 /******************************************************************************************************

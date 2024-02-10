@@ -100,8 +100,24 @@ main {
 }
 
 .skills {
+  height: auto;
+  width: 100%;
   margin-top: 1rem;
 }
+
+.skillsAddingDynamically{
+  min-height: 0rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+/* .skillsAddingDynamically p {
+  width: 100%;
+  padding: 3px 5px;
+} */
 
 .contactDetails {
   width: 100%;
