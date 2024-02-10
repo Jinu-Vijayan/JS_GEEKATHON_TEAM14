@@ -1,5 +1,7 @@
 import { getCurrentTabURL } from "./utils.js";
 
+const bookmarkElement = document.querySelector("#bookmarks");
+
 function setBookmarkAttributes(src,eventListener,controlParentElement){
     const controlElement = document.createElement("img");
 
@@ -24,13 +26,16 @@ async function onDelete(e){
     const bookmarkTime = e.target.parentNode.parentNode.getAttribute("timestamp");
     const bookmarkElementToDelete = document.getElementById(`bookmark-${bookmarkTime}`);
 
-    console.log(bookmarkElementToDelete.parentNode)
+    const noOfBookmarks = bookmarkElementToDelete.parentNode.children.length
     bookmarkElementToDelete.parentNode.removeChild(bookmarkElementToDelete);
+    if(noOfBookmarks === 1){
+        bookmarkElement.innerHTML = `<i class = "row">No bookmarks present</i>`
+    }
 
     chrome.tabs.sendMessage(activeTab.id,{
         type:"DELETE",
         value:bookmarkTime
-    },viewBookMarks)
+    })
 }
 
 function addNewBookmark(bookmarkElement,bookmark){
@@ -55,8 +60,8 @@ function addNewBookmark(bookmarkElement,bookmark){
 }
 
 function viewBookMarks(currentBookMarks = []){
-    console.log(currentBookMarks);
-    const bookmarkElement = document.querySelector("#bookmarks");
+    console.log("In viewBookMarks",currentBookMarks);
+    // const bookmarkElement = document.querySelector("#bookmarks");
     bookmarkElement.innerHTML = "";
 
     if(currentBookMarks.length > 0) {
@@ -65,6 +70,7 @@ function viewBookMarks(currentBookMarks = []){
         })
     } else {
         bookmarkElement.innerHTML = `<i class = "row">No bookmarks present</i>`
+        // noBookmarkMessageRender();
     }
 }
 
@@ -79,8 +85,6 @@ document.addEventListener("DOMContentLoaded" , async () => {
     if(activeTab.url.includes("youtube.com/watch") && currentVideo) {
         chrome.storage.sync.get([currentVideo], (data) =>{
             const currentVideoBookMarks = data[currentVideo] ? JSON.parse(data[currentVideo]) : [];
-            console.log(currentVideo);
-            console.log(currentVideoBookMarks);
             viewBookMarks(currentVideoBookMarks);
         })
     } else {

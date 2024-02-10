@@ -13,10 +13,23 @@
             youtubePlayer.currentTime = value;
         } else if(type === "DELETE") {
 
-            currentVideoBookMarks = currentVideoBookMarks.filter((bookmark) => bookmark.time != value);
+            chrome.storage.sync.get([currentVideo],(data) => {
+                currentVideoBookMarks = JSON.parse(data[currentVideo]);
+                // console.log("from storage", currentVideoBookMarks)
+                console.log("before filtering",currentVideoBookMarks);
+                currentVideoBookMarks = currentVideoBookMarks.filter((bookmark) => bookmark.time != value);
+                console.log("after filter",currentVideoBookMarks);
 
-            chrome.storage.sync.set({[currentVideo] : JSON.stringify(currentVideoBookMarks)});
-            response(currentVideoBookMarks);
+                chrome.storage.sync.set({[currentVideo] : JSON.stringify(currentVideoBookMarks)});
+                // response(currentVideoBookMarks);
+            })
+
+            // console.log("before filtering",currentVideoBookMarks);
+            // currentVideoBookMarks = currentVideoBookMarks.filter((bookmark) => bookmark.time != value);
+            // console.log("after filter",currentVideoBookMarks);
+
+            // chrome.storage.sync.set({[currentVideo] : JSON.stringify(currentVideoBookMarks)});
+            // response(currentVideoBookMarks);
         }
     })
 
@@ -48,7 +61,7 @@
         }
     }
 
-    newVideoLoaded();
+    // newVideoLoaded();
 
     async function addNewBookmarkHandler(){
         const currTime = youtubePlayer.currentTime;
@@ -60,11 +73,19 @@
         }
 
         currentVideoBookMarks = await fetchBookMarks();
-        console.log("bookmarks",currentVideoBookMarks);
         chrome.storage.sync.set({
             [currentVideo] : JSON.stringify([...currentVideoBookMarks,newBookmark].sort((a,b) => a.time - b.time))
         });
+
+        chrome.storage.sync.get([currentVideo],(data) => {
+            console.log(JSON.parse(data[currentVideo]));
+        })
     }
+
+    let trail="&ytExt=ON";
+  if(!window.location.href.includes(trail)&&!window.location.href.includes("ab_channel")&&window.location.href.includes("youtube.com/watch")){
+          window.location.href+=trail;
+  }
 
 })()
 
