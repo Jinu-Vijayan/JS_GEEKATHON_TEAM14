@@ -11,8 +11,45 @@ const Professional = document.querySelector(".Professional");
 const cssTemplate = document.querySelector("#cssTemplate");
 const colorChange = document.querySelector(".colorChange");
 
+const addedEmp = document.querySelector(".adding-employment");
+const addedProj = document.querySelector(".adding-project");
+const addedEdu = document.querySelector(".adding-education");
+
+addedEdu.addEventListener("keyup", (e) => {
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+  if (inputId === "startDate") {
+    console.log(inputVal);
+  }
+});
+
+addedProj.addEventListener("keyup", (e) => {
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+  if (inputId === "startDate") {
+    console.log(inputVal);
+  }
+});
+
+addedEmp.addEventListener("keyup", (e) => {
+  const addExp = document.querySelector(".addExp").children;
+  console.log(addExp);
+
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "startDate") {
+    console.log((addExp[1].children[0] = inputVal));
+  } else if (inputId === "endDate") {
+    console.log((addExp[1].children[1] = inputVal));
+  } else if (inputId === "tittle") {
+    addExp[0].children.textContent = inputVal;
+  }
+});
+
 /********************************************************************************************
  * @param
+ * from the addEventListener updating the personal details form
  * @returns
  ********************************************************************************************/
 
@@ -36,7 +73,9 @@ Personal.addEventListener("keyup", (e) => {
 });
 
 /************************************************************************************************
- *
+ *@param
+ *from the addEventListener updating the professional details form
+ *@returns
  ************************************************************************************************/
 
 Professional.addEventListener("keyup", (e) => {
@@ -53,11 +92,11 @@ Professional.addEventListener("keyup", (e) => {
       ".skillsAddingDynamically"
     );
 
-    let pTag = document.createElement("p");
-    pTag.innerHTML = inputVal;
-    pTag.style.background = "black";
-    // skillsAddingDynamically.children[0].innerHTML = inputVal;
-    skillsAddingDynamically.appendChild(pTag);
+    // let pTag = document.createElement("p");
+    // pTag.innerHTML = inputVal;
+    // pTag.style.background = "black";
+    skillsAddingDynamically.children[0].innerHTML = inputVal;
+    // skillsAddingDynamically.appendChild(pTag);
   }
 });
 
@@ -87,6 +126,12 @@ Professional.addEventListener("keyup", (e) => {
 //   location.textContent = Personal[4].value;
 // }
 
+/************************************************************************************************
+ *@param
+ * here i created handler to swap the css attribute as per user need
+ @returns
+ ************************************************************************************************/
+
 function cssSwap(inputVal) {
   if (inputVal === "TwoColumn") {
     cssTemplate.setAttribute("href", "./twoColumn.css");
@@ -110,8 +155,6 @@ selectType.addEventListener("change", (e) => {
 *********************************************************************************************************/
 
 function renderEmploymentForm() {
-  const addedEmp = document.querySelector("#adding-employment");
-
   // creating label date
   let labelStartDate = document.createElement("label");
   labelStartDate.textContent = "Start Date";
@@ -120,6 +163,7 @@ function renderEmploymentForm() {
   let startDate = document.createElement("input");
   startDate.setAttribute("type", "month");
   startDate.setAttribute("placeholder", "mm_yyyy");
+  startDate.setAttribute("id", "startDate");
 
   // creating end Date
   let labelEndDate = document.createElement("label");
@@ -127,28 +171,32 @@ function renderEmploymentForm() {
   let endDate = document.createElement("input");
   endDate.setAttribute("type", "month");
   endDate.setAttribute("placeholder", "mm_yyyy");
+  endDate.setAttribute("id", "endDate");
 
   // creating tittle
   let tittle = document.createElement("input");
   tittle.setAttribute("type", "text");
-  tittle.setAttribute("placeholder", "job tittle");
+  tittle.setAttribute("placeholder", "job Tittle");
+  tittle.setAttribute("id", "tittle");
 
   // creating employer
   let employer = document.createElement("input");
   employer.setAttribute("type", "text");
   employer.setAttribute("placeholder", "employer");
+  employer.setAttribute("id", "employer");
 
   // creating textarea for description
   let description = document.createElement("textarea");
   description.setAttribute("placeholder", "description");
+  description.setAttribute("id", "description");
 
   //here appending the all elements
   addedEmp.append(
     labelStartDate,
     startDate,
-    tittle,
     labelEndDate,
     endDate,
+    tittle,
     employer,
     description
   );
@@ -165,8 +213,6 @@ addEmployment.addEventListener("click", () => {
  *********************************************************************************************************/
 
 function renderProjectForm() {
-  const addedProj = document.querySelector("#adding-project");
-
   //creating label
   let labelStartDate = document.createElement("label");
   labelStartDate.textContent = "Start Date";
@@ -186,7 +232,7 @@ function renderProjectForm() {
   // creating tittle
   let tittle = document.createElement("input");
   tittle.setAttribute("type", "text");
-  tittle.setAttribute("placeholder", "job tittle");
+  tittle.setAttribute("placeholder", "project Tittle");
 
   // creating employer
   let employer = document.createElement("input");
@@ -201,10 +247,9 @@ function renderProjectForm() {
   addedProj.append(
     labelStartDate,
     startDate,
-    tittle,
     labelEndDate,
     endDate,
-    employer,
+    tittle,
     description
   );
 }
@@ -220,8 +265,6 @@ addProject.addEventListener("click", () => {
  **********************************************************************************************************/
 
 function renderEducationForm() {
-  const addedEdu = document.querySelector("#adding-education");
-
   // creating label
   let labelStartDate = document.createElement("label");
   labelStartDate.textContent = "Start Date";
