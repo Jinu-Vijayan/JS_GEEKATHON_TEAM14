@@ -1,0 +1,154 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    background: url("https://www.imageshine.in/uploads/gallery/Free-vector-watercolor-background-Wallpaper.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.conatiner{
+    width: 100%;
+}
+.page-heading{
+    text-align: center;
+    color: white;
+}
+.add-board-btn-container{
+    width: 20%;
+    margin: auto;
+}
+
+.add-btn{
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 1px 1px 0 1px rgba(0,0,0,.12);
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px;
+}
+
+.boards-container{
+    width: 100%;
+}
+.boards{
+    width: 95%;
+    margin: 1rem auto;
+    display: flex;
+    /* justify-content: ; */
+    /* align-items: center; */
+}
+.board{
+    width: 23%;
+    background-color: rgb(175, 169, 169);
+    padding: 1rem;
+    margin-right: 1rem;
+}
+.board-title-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-board-form-container{
+    margin: 1rem auto;
+    width: 23%;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+    display: none;
+    box-shadow: 5px 5px 20px 7px black
+}
+.add-board-input-container{
+    margin: 10px 0px;
+}
+.add-board-input-container input{
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid blue;
+    border-radius: 6px;
+    outline: none;
+}
+.add-board-name-btn{
+    background: blue;
+    color: white;
+    font-size: 18px;
+    outline: none;
+    border: 1px solid white;
+    padding: 8px;
+    border-radius: 6px;
+}
+.remove-board-form-btn{
+    border: none;
+    background: none;
+    font-size: 23px;
+    margin-left: 10px;
+}
+.add-board-form-btn-container{
+    display: flex;
+    align-items: center;
+}
+.cards-conatiner{
+    width: 100%;
+}
+.cards{
+    background: white;
+    border-radius: 4px;
+    padding: 10px;
+}
+.add-card-btn{
+    width: 100%;
+    font-size: 18px;
+    padding: 10px;
+    background: white;
+    color: #000;
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,.12);
+    text-align: center;
+    border: none;
+    border-radius: 18px;
+}
+.task-card-container{
+    width: 100%;
+    margin-bottom: 10px;
+}
+.card{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    grid-gap: 10px;
+    gap: 10px;
+    border-radius: 10px;
+    box-shadow: 0 9px 12px rgb(0 0 0/9%), 0 6px 6px rgb(0 0 0/6%);
+    cursor: pointer;
+}
+.card-title-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.task-container{
+    margin: 0px 0px;
+}
+.task{
+    flex: 1 1;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.875rem;
+    color: #17394d;
+}
+
+.hide{
+    display: none;
+}
+.add-board-input-form-container{
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
