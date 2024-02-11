@@ -31,19 +31,43 @@ addedProj.addEventListener("keyup", (e) => {
   }
 });
 
-addedEmp.addEventListener("keyup", (e) => {
-  const addExp = document.querySelector(".addExp").children;
-  console.log(addExp);
+addedEmp.addEventListener("input", (e) => {
+  const addExp = document.querySelector(".addExp");
+  let pTag1 = document.createElement("p");
+  let pTag2 = document.createElement("p");
 
   let inputId = e.target.id;
   let inputVal = e.target.value;
 
+  let newDivElement = document.createElement("div");
+  // console.log(newDivElement);
+
   if (inputId === "startDate") {
-    console.log((addExp[1].children[0] = inputVal));
+    console.log("startDate");
+    
+    pTag1.innerHTML = inputVal;
+
   } else if (inputId === "endDate") {
-    console.log((addExp[1].children[1] = inputVal));
-  } else if (inputId === "tittle") {
-    addExp[0].children.textContent = inputVal;
+    console.log("endDate");
+    
+    pTag2.innerHTML = inputVal;
+  }
+
+  newDivElement.appendChild(pTag1, pTag2);
+  addExp.append(newDivElement);
+  // console.log(addExp);
+});
+
+addedEmp.addEventListener("keyup", (e) => {
+  const addExp = document.querySelector(".addExp");
+  // console.log(addExp);
+
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "tittle") {
+    // addExp[0].textContent = inputVal;
+    addExp.innerHTML = `<li>${inputVal}</li>`
   }
 });
 
@@ -133,9 +157,15 @@ Professional.addEventListener("keyup", (e) => {
  ************************************************************************************************/
 
 function cssSwap(inputVal) {
+  const skills2 = document.querySelector(".skills2");
+  const summary = document.querySelector(".summary");
+
   if (inputVal === "TwoColumn") {
     cssTemplate.setAttribute("href", "./twoColumn.css");
   } else {
+    // console.log(skills);
+    // console.log(summary);
+    // summary.parentNode.insertBefore(skills2, summary.nextSibling);
     cssTemplate.setAttribute("href", "./minimalist.css");
   }
 }
@@ -202,10 +232,6 @@ function renderEmploymentForm() {
   );
 }
 
-addEmployment.addEventListener("click", () => {
-  renderEmploymentForm();
-});
-
 /********************************************************************************************************
  * @param
  * the function rendering the project form dynamically when user click on button
@@ -253,10 +279,6 @@ function renderProjectForm() {
     description
   );
 }
-
-addProject.addEventListener("click", () => {
-  renderProjectForm();
-});
 
 /*********************************************************************************************************
  * @param
@@ -311,4 +333,12 @@ function renderEducationForm() {
 
 addEducational.addEventListener("click", () => {
   renderEducationForm();
+});
+
+addProject.addEventListener("click", () => {
+  renderProjectForm();
+});
+
+addEmployment.addEventListener("click", () => {
+  renderEmploymentForm();
 });
