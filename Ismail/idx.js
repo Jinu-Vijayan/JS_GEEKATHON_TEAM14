@@ -16,49 +16,118 @@ const addedProj = document.querySelector(".adding-project");
 const addedEdu = document.querySelector(".adding-education");
 
 const addExp = document.querySelector(".addExp").children;
-let addExp2Tag = document.querySelector(".addExp2Tag").children;
+const addExp2Tag = document.querySelector(".addExp2Tag").children;
+
+const addPro = document.querySelector(".addPro").children;
+const addPro2Tag = document.querySelector(".addPro2Tag").children;
+
+const addEdux = document.querySelector(".addEdux").children;
+const addEdu2Tag = document.querySelector(".addEdu2Tag").children;
+
+// Filled Education Form------>
 
 addedEdu.addEventListener("keyup", (e) => {
+  let liTag = document.createElement("li");
+  let pTag1 = document.createElement("p");
+  let pTag2 = document.createElement("p");
+
   let inputId = e.target.id;
   let inputVal = e.target.value;
-  if (inputId === "startDate") {
-    // console.log(inputVal);
+
+  if (inputId === "Qualification") {
+    liTag.textContent = inputVal;
+    addEdu2Tag[0].innerHTML = "";
+    addEdu2Tag[0].append(liTag);
+  } else if (inputId === "school/collage") {
+    pTag1.textContent = inputVal;
+    addEdux[1].innerHTML = "";
+    addEdux[1].append(pTag1);
+  } else if (inputId === "description") {
+    pTag2.textContent = inputVal;
+    addEdux[2].innerHTML = "";
+    addEdux[2].append(pTag2);
   }
 });
 
+addedEdu.addEventListener("change", (e) => {
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
 
+  if (inputId === "startDate") {
+    let pTag1 = document.createElement("p");
+    pTag1.textContent = inputVal;
+    addEdu2Tag[1].append(pTag1);
+  } else if (inputId === "endDate") {
+    let pTag2 = document.createElement("p");
+    pTag2.textContent = `- ${inputVal}`;
+    addEdu2Tag[1].append(pTag2);
+  }
+});
 
+// Filled project Form------>
 
 addedProj.addEventListener("keyup", (e) => {
-  
-  let inputId = e.target.id;
-  console.log(inputId);
-  let inputVal = e.target.value;
-  if (inputId === "startDate") {
-    // console.log(inputVal);
-  }
-});
+  let liTag = document.createElement("li");
+  let pTag2 = document.createElement("p");
 
-
-
-// filled Employees Form---->
-addedEmp.addEventListener("keyup", (e) => {
   let inputId = e.target.id;
   let inputVal = e.target.value;
 
   if (inputId === "tittle") {
-    addExp2Tag[0].innerHTML = `<li>${inputVal}</li>`;
-  } else if(inputId === 'employer') {
-    addExp[1].textContent = inputVal;
-  } else if(inputId === "description") {
-    addExp[2].textContent = inputVal;
+    liTag.textContent = inputVal;
+    addPro2Tag[0].innerHTML = "";
+    addPro2Tag[0].append(liTag);
+  } else if (inputId === "description") {
+    pTag2.textContent = inputVal;
+    addPro[1].innerHTML = "";
+    addPro[1].append(pTag2);
   }
+});
 
+addedProj.addEventListener("change", (e) => {
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "startDate") {
+    let pTag1 = document.createElement("p");
+    pTag1.textContent = inputVal;
+    addPro2Tag[1].append(pTag1);
+
+    // console.log((pTag1.textContent = inputVal));
+  } else if (inputId === "endDate") {
+    let pTag2 = document.createElement("p");
+    pTag2.textContent = `- ${inputVal}`;
+    addPro2Tag[1].append(pTag2);
+    // console.log((pTag2.textContent = inputVal));
+  }
+});
+
+// filled Employees Form---->
+
+addedEmp.addEventListener("keyup", (e) => {
+  let liTag = document.createElement("li");
+  let pTag = document.createElement("p");
+  let pTag2 = document.createElement("p");
+
+  let inputId = e.target.id;
+  let inputVal = e.target.value;
+
+  if (inputId === "tittle") {
+    liTag.textContent = inputVal;
+    addExp2Tag[0].innerHTML = "";
+    addExp2Tag[0].append(liTag);
+  } else if (inputId === "employer") {
+    pTag.textContent = inputVal;
+    addExp[1].innerHTML = "";
+    addExp[1].append(pTag);
+  } else if (inputId === "description") {
+    pTag2.textContent = inputVal;
+    addExp[2].innerHTML = "";
+    addExp[2].append(pTag2);
+  }
 });
 
 addedEmp.addEventListener("change", (e) => {
-  // let newDivElement = document.createElement("div");
- 
   let inputId = e.target.id;
   console.log(inputId);
   let inputVal = e.target.value;
@@ -75,7 +144,6 @@ addedEmp.addEventListener("change", (e) => {
     addExp2Tag[1].append(pTag2);
     // console.log((pTag2.textContent = inputVal));
   }
-  
 });
 
 /********************************************************************************************
@@ -224,6 +292,7 @@ function renderProjectForm() {
   let startDate = document.createElement("input");
   startDate.setAttribute("type", "month");
   startDate.setAttribute("placeholder", "mm_yyyy");
+  startDate.setAttribute("id", "startDate");
 
   // creating end date
   let labelEndDate = document.createElement("label");
@@ -231,20 +300,24 @@ function renderProjectForm() {
   let endDate = document.createElement("input");
   endDate.setAttribute("type", "month");
   endDate.setAttribute("placeholder", "mm_yyyy");
+  endDate.setAttribute("id", "endDate");
 
   // creating tittle
   let tittle = document.createElement("input");
   tittle.setAttribute("type", "text");
   tittle.setAttribute("placeholder", "project Tittle");
+  tittle.setAttribute("id", "tittle");
 
   // creating employer
   let employer = document.createElement("input");
   employer.setAttribute("type", "text");
   employer.setAttribute("placeholder", "employer");
+  employer.setAttribute("id", "employer");
 
   // creating textarea for description
   let description = document.createElement("textarea");
   description.setAttribute("placeholder", "description");
+  description.setAttribute("id", "description");
 
   //here appending the all elements
   addedProj.append(
@@ -272,6 +345,7 @@ function renderEducationForm() {
   let startDate = document.createElement("input");
   startDate.setAttribute("type", "month");
   startDate.setAttribute("placeholder", "mm_yyyy");
+  startDate.setAttribute("id", "startDate");
 
   // creating label
   let labelEndDate = document.createElement("label");
@@ -281,20 +355,24 @@ function renderEducationForm() {
   let endDate = document.createElement("input");
   endDate.setAttribute("type", "month");
   endDate.setAttribute("placeholder", "mm_yyyy");
+  endDate.setAttribute("id", "endDate");
 
   // creating qualification
   let qualification = document.createElement("input");
   qualification.setAttribute("type", "text");
   qualification.setAttribute("placeholder", "Qualification");
+  qualification.setAttribute("id", "Qualification");
 
   //creating school/collage
   let school = document.createElement("input");
   school.setAttribute("type", "text");
   school.setAttribute("placeholder", "school/collage");
+  school.setAttribute("id", "school/collage");
 
   //creating description
   let description = document.createElement("textarea");
   description.setAttribute("placeholder", "description");
+  description.setAttribute("id", "description");
 
   //here appending the all elements
   addedEdu.append(
