@@ -74,9 +74,9 @@ function viewBookMarks(currentBookMarks = []){
     }
 }
 
-document.addEventListener("DOMContentLoaded" , async () => {
+async function onLoadHandler(){
     const activeTab = await getCurrentTabURL();
-    
+    console.log(activeTab);
     const queryParameter = activeTab.url.split("?")[1];
     const urlParameter = new URLSearchParams(queryParameter);
 
@@ -91,4 +91,6 @@ document.addEventListener("DOMContentLoaded" , async () => {
         const container = document.querySelector(".container");
         container.innerHTML = `<div class="title">This is not a youtube video page</div>`
     }
-})
+}
+
+document.addEventListener("DOMContentLoaded" , onLoadHandler)
