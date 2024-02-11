@@ -1,5 +1,7 @@
 /***************************************************************************************************************************************
- gerCurrentTabURL function finds out the URL of the tab on which you have your browser is focused on
+ gerCurrentTabURL is an async function that fetch data regarding the current tab
+
+ @return an object cotaining data regarding the currently active tab in the browser
 ***************************************************************************************************************************************/
 
 export async function getCurrentTabURL(){
