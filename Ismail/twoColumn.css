@@ -54,7 +54,7 @@ main {
 }
 
 .container-2 {
-  width: 70%;
+  width: 75%;
   margin-top: 1rem;
   height: auto;
   display: flex;
@@ -63,7 +63,7 @@ main {
 
 .dropDown1 {
   width: 70%;
-  height: 50rem;
+  height: 55rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   filter: drop-shadow(2px 4px 4px black);
 }
@@ -105,19 +105,22 @@ main {
   margin-top: 1rem;
 }
 
-.skillsAddingDynamically{
+.skillsAddingDynamically {
   min-height: 0rem;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 10px 10px;
 }
-/* .skillsAddingDynamically p {
-  width: 100%;
-  padding: 3px 5px;
-} */
+
+
+.skills-for-minimalist {
+  display: none;
+}
 
 .contactDetails {
   width: 100%;
@@ -127,7 +130,6 @@ main {
 }
 
 .contactDetails p {
-  /* width: 100%; */
   min-height: 1.7rem;
   display: flex;
   justify-content: flex-start;
@@ -156,12 +158,44 @@ main {
 
 .summary {
   width: 100%;
-  margin-top: 1rem;
+  margin-top: .5rem;
+}
+.addSummary p {
+  margin-top: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 .Professional-Exp {
   width: 100%;
 }
+
+.addExp {
+  margin-top: .7rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-direction: column;
+  padding: 0px 5px;
+}
+
+
+.addExp2Tag {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.addExp2Tag :nth-child(2) {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 7px;
+}
+
 
 .project {
   width: 100%;

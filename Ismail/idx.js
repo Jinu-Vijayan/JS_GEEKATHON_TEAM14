@@ -15,60 +15,67 @@ const addedEmp = document.querySelector(".adding-employment");
 const addedProj = document.querySelector(".adding-project");
 const addedEdu = document.querySelector(".adding-education");
 
+const addExp = document.querySelector(".addExp").children;
+let addExp2Tag = document.querySelector(".addExp2Tag").children;
+
 addedEdu.addEventListener("keyup", (e) => {
   let inputId = e.target.id;
   let inputVal = e.target.value;
   if (inputId === "startDate") {
-    console.log(inputVal);
+    // console.log(inputVal);
   }
 });
+
+
+
 
 addedProj.addEventListener("keyup", (e) => {
+  
   let inputId = e.target.id;
+  console.log(inputId);
   let inputVal = e.target.value;
   if (inputId === "startDate") {
-    console.log(inputVal);
+    // console.log(inputVal);
   }
 });
 
-addedEmp.addEventListener("input", (e) => {
-  const addExp = document.querySelector(".addExp");
-  let pTag1 = document.createElement("p");
-  let pTag2 = document.createElement("p");
 
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
 
-  let newDivElement = document.createElement("div");
-  // console.log(newDivElement);
-
-  if (inputId === "startDate") {
-    console.log("startDate");
-    
-    pTag1.innerHTML = inputVal;
-
-  } else if (inputId === "endDate") {
-    console.log("endDate");
-    
-    pTag2.innerHTML = inputVal;
-  }
-
-  newDivElement.appendChild(pTag1, pTag2);
-  addExp.append(newDivElement);
-  // console.log(addExp);
-});
-
+// filled Employees Form---->
 addedEmp.addEventListener("keyup", (e) => {
-  const addExp = document.querySelector(".addExp");
-  // console.log(addExp);
-
   let inputId = e.target.id;
   let inputVal = e.target.value;
 
   if (inputId === "tittle") {
-    // addExp[0].textContent = inputVal;
-    addExp.innerHTML = `<li>${inputVal}</li>`
+    addExp2Tag[0].innerHTML = `<li>${inputVal}</li>`;
+  } else if(inputId === 'employer') {
+    addExp[1].textContent = inputVal;
+  } else if(inputId === "description") {
+    addExp[2].textContent = inputVal;
   }
+
+});
+
+addedEmp.addEventListener("change", (e) => {
+  // let newDivElement = document.createElement("div");
+ 
+  let inputId = e.target.id;
+  console.log(inputId);
+  let inputVal = e.target.value;
+
+  if (inputId === "startDate") {
+    let pTag1 = document.createElement("p");
+    pTag1.textContent = inputVal;
+    addExp2Tag[1].append(pTag1);
+
+    // console.log((pTag1.textContent = inputVal));
+  } else if (inputId === "endDate") {
+    let pTag2 = document.createElement("p");
+    pTag2.textContent = `- ${inputVal}`;
+    addExp2Tag[1].append(pTag2);
+    // console.log((pTag2.textContent = inputVal));
+  }
+  
 });
 
 /********************************************************************************************
@@ -79,6 +86,7 @@ addedEmp.addEventListener("keyup", (e) => {
 
 Personal.addEventListener("keyup", (e) => {
   // console.log(e.target.id);
+
   let inputId = e.target.id;
   let inputVal = e.target.value;
 
@@ -98,9 +106,13 @@ Personal.addEventListener("keyup", (e) => {
 
 /************************************************************************************************
  *@param
- *from the addEventListener updating the professional details form
+ * addEventListener updating the professional details form
  *@returns
  ************************************************************************************************/
+
+let skillsAddingDynamically = document.querySelector(
+  ".skillsAddingDynamically"
+);
 
 Professional.addEventListener("keyup", (e) => {
   let inputId = e.target.id;
@@ -112,67 +124,32 @@ Professional.addEventListener("keyup", (e) => {
     let addSummary = document.querySelector(".addSummary");
     addSummary.children[0].innerHTML = inputVal;
   } else if (inputId == "ProfessionalSkills") {
-    let skillsAddingDynamically = document.querySelector(
-      ".skillsAddingDynamically"
-    );
-
+    skillsAddingDynamically.children[0].innerHTML = inputVal;
     // let pTag = document.createElement("p");
     // pTag.innerHTML = inputVal;
     // pTag.style.background = "black";
-    skillsAddingDynamically.children[0].innerHTML = inputVal;
     // skillsAddingDynamically.appendChild(pTag);
   }
 });
 
-// function updateTemplate() {
-//   const headColorVal = document.querySelector("#headColor").value;
-//   const textColorVal = document.querySelector("#headTextColor").value;
-
-//   let inputValOfName = Personal[1].value;
-//   // inputValOfName.style.backgroundColor = textColorVal;
-
-//   // Updating change color and Name
-//
-//   colorChange.style.backgroundColor = headColorVal;
-
-//   colorChange.innerHTML = `
-//   <h2>${inputValOfName}</h2>
-//   <p>${Professional[1].value}</p>`;
-
-//   // Updating Contact Details
-//   let number = document.getElementById("number");
-//   number.textContent = Personal[3].value;
-
-//   let email = document.getElementById("email");
-//   email.textContent = Personal[2].value;
-
-//   let location = document.getElementById("location");
-//   location.textContent = Personal[4].value;
-// }
-
-/************************************************************************************************
- *@param
+/******************************************************************
+ *@param inputVal
  * here i created handler to swap the css attribute as per user need
  @returns
- ************************************************************************************************/
+ ****************************************************************/
 
 function cssSwap(inputVal) {
-  const skills2 = document.querySelector(".skills2");
-  const summary = document.querySelector(".summary");
-
   if (inputVal === "TwoColumn") {
     cssTemplate.setAttribute("href", "./twoColumn.css");
+    // document.querySelector(".skills-for-minimalist").style.display ="none";
   } else {
-    // console.log(skills);
-    // console.log(summary);
-    // summary.parentNode.insertBefore(skills2, summary.nextSibling);
+    // document.querySelector(".skills-for-minimalist").style.display ="block";
     cssTemplate.setAttribute("href", "./minimalist.css");
   }
 }
 
 selectType.addEventListener("change", (e) => {
   let inputVal = e.target.value;
-  // console.log(inputVal);
   cssSwap(inputVal);
 });
 
