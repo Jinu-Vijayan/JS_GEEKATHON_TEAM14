@@ -82,7 +82,7 @@ Professional.addEventListener("keyup", (e) => {
 
 /******************************************************************
  *@param inputVal
- * here i created handler to swap the css attribute as per user need
+ * here i created handler to swap the css attribute as per user needs
  @returns
  ****************************************************************/
 
