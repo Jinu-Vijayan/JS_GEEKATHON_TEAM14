@@ -16,9 +16,9 @@
             chrome.storage.sync.get([currentVideo],(data) => {
                 currentVideoBookMarks = JSON.parse(data[currentVideo]);
                 // console.log("from storage", currentVideoBookMarks)
-                console.log("before filtering",currentVideoBookMarks);
+                // console.log("before filtering",currentVideoBookMarks);
                 currentVideoBookMarks = currentVideoBookMarks.filter((bookmark) => bookmark.time != value);
-                console.log("after filter",currentVideoBookMarks);
+                // console.log("after filter",currentVideoBookMarks);
 
                 chrome.storage.sync.set({[currentVideo] : JSON.stringify(currentVideoBookMarks)});
                 // response(currentVideoBookMarks);
@@ -61,25 +61,73 @@
         }
     }
 
-    // newVideoLoaded();
+    function getNameOFBookMark(newBookmark){
+    
+        const youtubeDisplay = document.querySelector("ytd-app");
+    
+        const nameFormContainer = document.createElement("form");
+        const nameInput = document.createElement("input");
+        const saveBtn = document.createElement("button");
+    
+    
+        nameFormContainer.style.zIndex = 10;
+        nameFormContainer.style.position = "absolute"
+        nameFormContainer.style.top = "10%";
+        nameFormContainer.style.left = "50%";
+        nameFormContainer.style.backgroundColor = "white";
+        nameFormContainer.style.padding = "0.625rem";
+        nameFormContainer.style.borderRadius = "0.625rem"
+        nameFormContainer.style.boxShadow = "-5px 5px 2px 2px #8c8b8b"
+    
+        nameInput.value = newBookmark.desc;
+    
+        saveBtn.textContent = "save";
+        saveBtn.style.marginLeft = "0.625rem"
+    
+        youtubeDisplay.style.position = "relative";
+    
+        saveBtn.addEventListener("click", (e) => {
 
+            e.preventDefault();
+    
+            const nameForm = e.target.parentNode;
+        
+            newBookmark.desc = nameForm.children[0].value;
+
+            chrome.storage.sync.set({
+                [currentVideo] : JSON.stringify([...currentVideoBookMarks,newBookmark].sort((a,b) => a.time - b.time))
+            });
+        
+            nameForm.parentNode.removeChild(nameForm);
+        });
+    
+        nameFormContainer.append(nameInput,saveBtn);
+        youtubeDisplay.append(nameFormContainer);
+    }
+
+    
     async function addNewBookmarkHandler(){
         const currTime = youtubePlayer.currentTime;
         const descTime = getTimeInStandardFormat(currTime);
-        
+
+
         const newBookmark = {
             "time" : currTime,
             "desc" : `Bookmark at ${descTime}`
         }
 
-        currentVideoBookMarks = await fetchBookMarks();
-        chrome.storage.sync.set({
-            [currentVideo] : JSON.stringify([...currentVideoBookMarks,newBookmark].sort((a,b) => a.time - b.time))
-        });
 
-        chrome.storage.sync.get([currentVideo],(data) => {
-            console.log(JSON.parse(data[currentVideo]));
-        })
+        currentVideoBookMarks = await fetchBookMarks();
+
+        getNameOFBookMark(newBookmark);
+
+        // chrome.storage.sync.set({
+        //     [currentVideo] : JSON.stringify([...currentVideoBookMarks,newBookmark].sort((a,b) => a.time - b.time))
+        // });
+
+        // chrome.storage.sync.get([currentVideo],(data) => {
+        //     console.log(JSON.parse(data[currentVideo]));
+        // })
     }
 
     let trail="&ytExt=ON";
