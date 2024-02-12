@@ -16,7 +16,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 30px;
+  padding: 0px 55px;
+  cursor: pointer;
 }
 .downLoad img {
   width: 2.5vw;
@@ -25,19 +26,25 @@ body {
 #pdf {
   width: 9rem;
   height: 2rem;
-  background-color: green;
+  background-color: hsl(120, 78%, 27%);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  border-radius: 2px;
+}
+
+#pdf:hover {
+  background-color: hsl(120, 78%, 20%);
+  transform: scale(0.98);
 }
 
 main {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   background-color: #f3f3f6;
 }
 
@@ -50,6 +57,7 @@ main {
   align-items: start;
   gap: 1rem;
   margin-top: 1rem;
+  margin-left: 1rem;
   /* background-color: aquamarine; */
 }
 
@@ -152,6 +160,7 @@ main {
   height: 2.2rem;
   background-color: hsl(120, 61%, 40%);
   color: white;
+  border-radius: 5px;
 }
 
 .addEmployment p:hover,
@@ -193,16 +202,19 @@ main {
   align-items: center;
   gap: 0.5rem;
   border: 0;
-  background-color: hsl(219, 79%, 66%);
+  background-color: hsl(240, 100%, 50%);
   color: white;
   font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .adding-employment button:hover,
 .adding-project button:hover,
 .adding-education button:hover {
-  background-color: hsl(219, 79%, 56%);
+  background-color: hsl(240, 100%, 70%);
   transform: scale(0.98);
+  cursor: pointer;
 }
 
 .adding-employment input,
@@ -212,6 +224,8 @@ main {
   height: 2rem;
   padding: 5px 5px;
   font-size: 16px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }
 
 .adding-employment textarea,
@@ -221,4 +235,6 @@ main {
   height: 8rem;
   padding: 5px 10px;
   font-size: 16px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }

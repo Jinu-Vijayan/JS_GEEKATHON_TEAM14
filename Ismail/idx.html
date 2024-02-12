@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="./form.css" />
     <link id="cssTemplate" rel="stylesheet" href="./minimalist.css" />
 
+    <script src="https://rawgit.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
   </head>
   <body>
-    <header class="downLoad">
+    <header class="downLoad" id="downLoad">
       <div><img src="./copy.png" alt="" /></div>
       <div id="pdf">
         <span><i class="fa-solid fa-download"></i></span
@@ -32,17 +33,31 @@
             <label for="selectType" style="font-size: 18px"
               >Template Type</label
             >
-            <select name="" id="selectType">
-              <option value="Minimalist" id="optionOne" selected>
+            <select style="cursor: pointer" name="" id="selectType">
+              <option
+                value="Minimalist"
+                id="optionOne"
+                selected
+                style="cursor: pointer"
+              >
                 Minimalist
               </option>
-              <option value="TwoColumn" id="optionTwo">TwoColumn</option>
+              <option value="TwoColumn" id="optionTwo" style="cursor: pointer">
+                TwoColumn
+              </option>
             </select>
           </div>
 
           <div class="header-color">
             <label for="headColor" style="font-size: 18px">Header Color</label>
-            <div><input type="color" value="#ff0000" id="headColor" /></div>
+            <div>
+              <input
+                type="color"
+                value="#ff0000"
+                id="headColor"
+                style="cursor: pointer"
+              />
+            </div>
           </div>
 
           <div class="text-color">
@@ -111,15 +126,18 @@
           </div>
 
           <div class="addEducational">
-            <div style="font-size: 18px; margin-bottom: 5px;">Educational Background</div>
+            <div style="font-size: 18px; margin-bottom: 5px">
+              Educational Background
+            </div>
             <p id="addEducational">Add Education</p>
             <div class="adding-education"></div>
           </div>
         </div>
       </section>
 
-      <section class="container-2">
-        <div class="dropDown1">
+      <section class="container-2" id="container-2">
+        <!-- <center></center> -->
+        <div class="dropDown1" id="dropDown1">
           <div class="colorChange">
             <h2 id="headerText"></h2>
             <p></p>
@@ -182,9 +200,7 @@
               <div class="project">
                 <p>PROJECT</p>
                 <hr />
-                <div class="addPro">
-                 
-                </div>
+                <div class="addPro"></div>
               </div>
 
               <div class="education">

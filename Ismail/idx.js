@@ -19,6 +19,20 @@ const headColor = document.getElementById("headColor");
 const headTextColor = document.getElementById("headTextColor");
 const headerText = document.getElementById("headerText");
 
+const downLoad = document.getElementById("downLoad");
+
+function generatePDF() {
+  const element = document.getElementById("dropDown1");
+  console.log(element);
+
+  html2pdf().from(element).save();
+}
+
+downLoad.addEventListener("click", () => {
+  console.log("working");
+  generatePDF();
+});
+
 // here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
 headTextColor.addEventListener("input", (e) => {
   let headTextColorVal = e.target.value;
