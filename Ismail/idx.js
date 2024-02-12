@@ -12,138 +12,22 @@ const cssTemplate = document.querySelector("#cssTemplate");
 const colorChange = document.querySelector(".colorChange");
 
 const addedEmp = document.querySelector(".adding-employment");
-const addedProj = document.querySelector(".adding-project");
+const addedPro = document.querySelector(".adding-project");
 const addedEdu = document.querySelector(".adding-education");
 
-const addExp = document.querySelector(".addExp").children;
-const addExp2Tag = document.querySelector(".addExp2Tag").children;
+const headColor = document.getElementById("headColor");
+const headTextColor = document.getElementById("headTextColor");
+const headerText = document.getElementById("headerText");
 
-const addPro = document.querySelector(".addPro").children;
-const addPro2Tag = document.querySelector(".addPro2Tag").children;
+headTextColor.addEventListener('input', (e) => {
+  let headTextColorVal = e.target.value;
+  headerText.style.color = headTextColorVal;
 
-const addEdux = document.querySelector(".addEdux").children;
-const addEdu2Tag = document.querySelector(".addEdu2Tag").children;
-
-// Filled Education Form------>
-
-addedEdu.addEventListener("keyup", (e) => {
-  let liTag = document.createElement("li");
-  let pTag1 = document.createElement("p");
-  let pTag2 = document.createElement("p");
-
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
-
-  if (inputId === "Qualification") {
-    liTag.textContent = inputVal;
-    addEdu2Tag[0].innerHTML = "";
-    addEdu2Tag[0].append(liTag);
-  } else if (inputId === "school/collage") {
-    pTag1.textContent = inputVal;
-    addEdux[1].innerHTML = "";
-    addEdux[1].append(pTag1);
-  } else if (inputId === "description") {
-    pTag2.textContent = inputVal;
-    addEdux[2].innerHTML = "";
-    addEdux[2].append(pTag2);
-  }
 });
 
-addedEdu.addEventListener("change", (e) => {
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
-
-  if (inputId === "startDate") {
-    let pTag1 = document.createElement("p");
-    pTag1.textContent = inputVal;
-    addEdu2Tag[1].append(pTag1);
-  } else if (inputId === "endDate") {
-    let pTag2 = document.createElement("p");
-    pTag2.textContent = `- ${inputVal}`;
-    addEdu2Tag[1].append(pTag2);
-  }
-});
-
-// Filled project Form------>
-
-addedProj.addEventListener("keyup", (e) => {
-  let liTag = document.createElement("li");
-  let pTag2 = document.createElement("p");
-
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
-
-  if (inputId === "tittle") {
-    liTag.textContent = inputVal;
-    addPro2Tag[0].innerHTML = "";
-    addPro2Tag[0].append(liTag);
-  } else if (inputId === "description") {
-    pTag2.textContent = inputVal;
-    addPro[1].innerHTML = "";
-    addPro[1].append(pTag2);
-  }
-});
-
-addedProj.addEventListener("change", (e) => {
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
-
-  if (inputId === "startDate") {
-    let pTag1 = document.createElement("p");
-    pTag1.textContent = inputVal;
-    addPro2Tag[1].append(pTag1);
-
-    // console.log((pTag1.textContent = inputVal));
-  } else if (inputId === "endDate") {
-    let pTag2 = document.createElement("p");
-    pTag2.textContent = `- ${inputVal}`;
-    addPro2Tag[1].append(pTag2);
-    // console.log((pTag2.textContent = inputVal));
-  }
-});
-
-// filled Employees Form---->
-
-addedEmp.addEventListener("keyup", (e) => {
-  let liTag = document.createElement("li");
-  let pTag = document.createElement("p");
-  let pTag2 = document.createElement("p");
-
-  let inputId = e.target.id;
-  let inputVal = e.target.value;
-
-  if (inputId === "tittle") {
-    liTag.textContent = inputVal;
-    addExp2Tag[0].innerHTML = "";
-    addExp2Tag[0].append(liTag);
-  } else if (inputId === "employer") {
-    pTag.textContent = inputVal;
-    addExp[1].innerHTML = "";
-    addExp[1].append(pTag);
-  } else if (inputId === "description") {
-    pTag2.textContent = inputVal;
-    addExp[2].innerHTML = "";
-    addExp[2].append(pTag2);
-  }
-});
-
-addedEmp.addEventListener("change", (e) => {
-  let inputId = e.target.id;
-  console.log(inputId);
-  let inputVal = e.target.value;
-
-  if (inputId === "startDate") {
-    let pTag1 = document.createElement("p");
-    pTag1.textContent = inputVal;
-    addExp2Tag[1].append(pTag1);
-
-    // console.log((pTag1.textContent = inputVal));
-  } else if (inputId === "endDate") {
-    let pTag2 = document.createElement("p");
-    pTag2.textContent = `- ${inputVal}`;
-    addExp2Tag[1].append(pTag2);
-    // console.log((pTag2.textContent = inputVal));
-  }
+headColor.addEventListener("input", (e) => {
+  let headerColorVal = e.target.value;
+  colorChange.style.backgroundColor = headerColorVal;
 });
 
 /********************************************************************************************
@@ -153,8 +37,6 @@ addedEmp.addEventListener("change", (e) => {
  ********************************************************************************************/
 
 Personal.addEventListener("keyup", (e) => {
-  // console.log(e.target.id);
-
   let inputId = e.target.id;
   let inputVal = e.target.value;
 
@@ -178,9 +60,8 @@ Personal.addEventListener("keyup", (e) => {
  *@returns
  ************************************************************************************************/
 
-let skillsAddingDynamically = document.querySelector(
-  ".skillsAddingDynamically"
-);
+const skillsDynamicAdd = document.querySelector(".skillsDynamicAdd");
+const skillsDynamicAddMinima = document.querySelector(".skillsDynamicAddMinima");
 
 Professional.addEventListener("keyup", (e) => {
   let inputId = e.target.id;
@@ -192,11 +73,10 @@ Professional.addEventListener("keyup", (e) => {
     let addSummary = document.querySelector(".addSummary");
     addSummary.children[0].innerHTML = inputVal;
   } else if (inputId == "ProfessionalSkills") {
-    skillsAddingDynamically.children[0].innerHTML = inputVal;
-    // let pTag = document.createElement("p");
-    // pTag.innerHTML = inputVal;
-    // pTag.style.background = "black";
-    // skillsAddingDynamically.appendChild(pTag);
+    skillsDynamicAdd.children[0].innerHTML = inputVal;
+    // console.log(skillsDynamicAdd.children[0].innerHTML);
+    skillsDynamicAddMinima.children[0].innerHTML = inputVal;
+    // console.log(skillsDynamicAddMinima.children[0].innerHTML);
   }
 });
 
@@ -221,15 +101,305 @@ selectType.addEventListener("change", (e) => {
   cssSwap(inputVal);
 });
 
+// this is for Project Card Update form and creation card
+
+const addEdux = document.querySelector(".addEdux");
+
 /******************************************************************************************************
  *@param
-
- the function rendering the employee form dynamically when user click on button
-
+ the function rendering the education card dynamically when user click on button
  *@returns
 *********************************************************************************************************/
 
+function renderEducationCard() {
+  const addEdu2Tag = document.createElement("div");
+  const addEdu2TagChild1 = document.createElement("div");
+  const addEdu2TagChild2 = document.createElement("div");
+  const addEduxChild1 = document.createElement("p");
+  const addEduxChild2 = document.createElement("p");
+
+  // getting value from renderEmForm function----->
+  const startDateVal = document.getElementById("startDate").value;
+  const endDateVal = document.getElementById("endDate").value;
+  const qualificationVal = document.getElementById("qualification").value;
+  const schoolCollage = document.getElementById("school-collage").value;
+  const descriptionVal = document.getElementById("description").value;
+
+  let liTag = document.createElement("li");
+  let pTag1 = document.createElement("p");
+  let pTag2 = document.createElement("p");
+
+  liTag.textContent = qualificationVal;
+  addEdu2TagChild1.append(liTag);
+  pTag1.textContent = startDateVal;
+  pTag2.textContent = endDateVal;
+  addEdu2TagChild2.append(pTag1, pTag2);
+
+  addEdu2Tag.classList.add("addEdu2Tag");
+  addEdu2Tag.append(addEdu2TagChild1, addEdu2TagChild2);
+
+  // addProChild1.textContent = qualificationVal;
+  addEduxChild1.textContent = schoolCollage;
+  addEduxChild2.textContent = descriptionVal;
+
+  addEdux.append(addEdu2Tag, addEduxChild1, addEduxChild2);
+}
+
+/*********************************************************************************************************
+ * @param
+ * the function rendering the education form dynamically when user click on button
+ * @returns
+ **********************************************************************************************************/
+
+function renderEducationForm() {
+  const educationFormContainer = document.createElement("div");
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+
+  const cancelBtn = document.createElement("button");
+  cancelBtn.textContent = "Cancel";
+
+  // creating label
+  let labelStartDate = document.createElement("label");
+  labelStartDate.textContent = "Start Date";
+
+  // creating stat date
+  let startDate = document.createElement("input");
+  startDate.setAttribute("type", "month");
+  startDate.setAttribute("placeholder", "mm_yyyy");
+  startDate.setAttribute("id", "startDate");
+
+  // creating label
+  let labelEndDate = document.createElement("label");
+  labelEndDate.textContent = "End Date";
+
+  // creating end Date
+  let endDate = document.createElement("input");
+  endDate.setAttribute("type", "month");
+  endDate.setAttribute("placeholder", "mm_yyyy");
+  endDate.setAttribute("id", "endDate");
+
+  // creating qualification
+  let qualification = document.createElement("input");
+  qualification.setAttribute("type", "text");
+  qualification.setAttribute("placeholder", "Qualification");
+  qualification.setAttribute("id", "qualification");
+
+  //creating school/collage
+  let school = document.createElement("input");
+  school.setAttribute("type", "text");
+  school.setAttribute("placeholder", "school/collage");
+  school.setAttribute("id", "school-collage");
+
+  //creating description
+  let description = document.createElement("textarea");
+  description.setAttribute("placeholder", "description");
+  description.setAttribute("id", "description");
+
+  //here appending the all elements
+  educationFormContainer.append(
+    labelStartDate,
+    startDate,
+    labelEndDate,
+    endDate,
+    qualification,
+    school,
+    description,
+    saveBtn,
+    cancelBtn
+  );
+
+  addedEdu.append(educationFormContainer);
+}
+
+addedEdu.addEventListener("click", (e) => {
+  let clickedElement = e.target;
+  if (clickedElement.textContent === "Save") {
+    renderEducationCard();
+  } else if (clickedElement.textContent === "Cancel") {
+    addedEdu.innerHTML = "";
+  }
+});
+
+addEducational.addEventListener("click", () => {
+  if (addedEdu.children.length === 0) {
+    renderEducationForm();
+  }
+});
+
+// this is for Project Card Update form and creation card
+const addPro = document.querySelector(".addPro");
+
+/******************************************************************************************************
+ *@param
+ the function rendering the project card dynamically when user click on button
+ *@returns
+*********************************************************************************************************/
+
+function renderProjectCard() {
+  const addPro2Tag = document.createElement("div");
+  const addPro2TagChild1 = document.createElement("div");
+  const addPro2TagChild2 = document.createElement("div");
+  const addProChild1 = document.createElement("p");
+
+  // getting value from renderEmploymentForm function----->
+  const startDateVal = document.getElementById("startDate").value;
+  const endDateVal = document.getElementById("endDate").value;
+  const tittleVal = document.getElementById("tittle").value;
+  const descriptionVal = document.getElementById("description").value;
+
+  let liTag = document.createElement("li");
+  let pTag1 = document.createElement("p");
+  let pTag2 = document.createElement("p");
+
+  liTag.textContent = tittleVal;
+  addPro2TagChild1.append(liTag);
+  pTag1.textContent = startDateVal;
+  pTag2.textContent = endDateVal;
+  addPro2TagChild2.append(pTag1, pTag2);
+
+  addPro2Tag.classList.add("addPro2Tag");
+  addPro2Tag.append(addPro2TagChild1, addPro2TagChild2);
+
+  addProChild1.textContent = descriptionVal;
+
+  addPro.append(addPro2Tag, addProChild1);
+}
+
+/********************************************************************************************************
+ * @param
+ * the function rendering the project form dynamically when user click on button
+ * @returns
+ *********************************************************************************************************/
+
+function renderProjectForm() {
+  const projectFormContainer = document.createElement("div");
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+
+  const cancelBtn = document.createElement("button");
+  cancelBtn.textContent = "Cancel";
+
+  //creating label
+  let labelStartDate = document.createElement("label");
+  labelStartDate.textContent = "Start Date";
+
+  //creating start date
+  let startDate = document.createElement("input");
+  startDate.setAttribute("type", "month");
+  startDate.setAttribute("placeholder", "mm_yyyy");
+  startDate.setAttribute("id", "startDate");
+
+  // creating end date
+  let labelEndDate = document.createElement("label");
+  labelEndDate.textContent = "End Date";
+  let endDate = document.createElement("input");
+  endDate.setAttribute("type", "month");
+  endDate.setAttribute("placeholder", "mm_yyyy");
+  endDate.setAttribute("id", "endDate");
+
+  // creating tittle
+  let tittle = document.createElement("input");
+  tittle.setAttribute("type", "text");
+  tittle.setAttribute("placeholder", "project Tittle");
+  tittle.setAttribute("id", "tittle");
+
+  // creating employer
+  let employer = document.createElement("input");
+  employer.setAttribute("type", "text");
+  employer.setAttribute("placeholder", "employer");
+  employer.setAttribute("id", "employers");
+
+  // creating textarea for description
+  let description = document.createElement("textarea");
+  description.setAttribute("placeholder", "description");
+  description.setAttribute("id", "description");
+
+  //here appending the all elements
+  projectFormContainer.append(
+    labelStartDate,
+    startDate,
+    labelEndDate,
+    endDate,
+    tittle,
+    description,
+    saveBtn,
+    cancelBtn
+  );
+  addedPro.append(projectFormContainer);
+}
+
+addedPro.addEventListener("click", (e) => {
+  let clickedElement = e.target;
+  if (clickedElement.textContent === "Save") {
+    renderProjectCard();
+  } else if (clickedElement.textContent === "Cancel") {
+    addedPro.innerHTML = "";
+  }
+});
+
+addProject.addEventListener("click", () => {
+  if (addedPro.children.length === 0) {
+    renderProjectForm();
+  }
+});
+
+// this is for addEmployee Card Update form and creation card
+
+const addExp = document.querySelector(".addExp");
+
+/******************************************************************************************************
+ *@param
+ the function rendering the employee card dynamically when user click on button
+ *@returns
+*********************************************************************************************************/
+
+function renderEmploymentCard() {
+  const addExp2Tag = document.createElement("div");
+  const addExp2TagChild1 = document.createElement("div");
+  const addExp2TagChild2 = document.createElement("div");
+  const addExpChild1 = document.createElement("p");
+  const addExpChild2 = document.createElement("p");
+
+  // getting value from renderEmploymentForm function----->
+  const startDateVal = document.getElementById("startDate").value;
+  const endDateVal = document.getElementById("endDate").value;
+  const tittleVal = document.getElementById("tittle").value;
+  const employerVal = document.getElementById("employer").value;
+  const descriptionVal = document.getElementById("description").value;
+
+  let liTag = document.createElement("li");
+  let pTag1 = document.createElement("p");
+  let pTag2 = document.createElement("p");
+
+  liTag.textContent = tittleVal;
+  addExp2TagChild1.append(liTag);
+  pTag1.textContent = startDateVal;
+  pTag2.textContent = endDateVal;
+  addExp2TagChild2.append(pTag1, pTag2);
+
+  addExp2Tag.classList.add("addExp2Tag");
+  addExp2Tag.append(addExp2TagChild1, addExp2TagChild2);
+
+  addExpChild1.textContent = employerVal;
+  addExpChild2.textContent = descriptionVal;
+
+  addExp.append(addExp2Tag, addExpChild1, addExpChild2);
+}
+
+/******************************************************************************************************
+ *@param
+ the function rendering the employee form dynamically when user click on button
+ *@returns
+*********************************************************************************************************/
 function renderEmploymentForm() {
+  const employmentFormContainer = document.createElement("div");
+  const saveBtn = document.createElement("button");
+  saveBtn.textContent = "Save";
+
+  const cancelBtn = document.createElement("button");
+  cancelBtn.textContent = "Cancel";
+
   // creating label date
   let labelStartDate = document.createElement("label");
   labelStartDate.textContent = "Start Date";
@@ -265,135 +435,32 @@ function renderEmploymentForm() {
   description.setAttribute("placeholder", "description");
   description.setAttribute("id", "description");
 
-  //here appending the all elements
-  addedEmp.append(
+  employmentFormContainer.append(
     labelStartDate,
     startDate,
     labelEndDate,
     endDate,
     tittle,
     employer,
-    description
+    description,
+    saveBtn,
+    cancelBtn
   );
+
+  addedEmp.append(employmentFormContainer);
 }
 
-/********************************************************************************************************
- * @param
- * the function rendering the project form dynamically when user click on button
- * @returns
- *********************************************************************************************************/
-
-function renderProjectForm() {
-  //creating label
-  let labelStartDate = document.createElement("label");
-  labelStartDate.textContent = "Start Date";
-
-  //creating start date
-  let startDate = document.createElement("input");
-  startDate.setAttribute("type", "month");
-  startDate.setAttribute("placeholder", "mm_yyyy");
-  startDate.setAttribute("id", "startDate");
-
-  // creating end date
-  let labelEndDate = document.createElement("label");
-  labelEndDate.textContent = "End Date";
-  let endDate = document.createElement("input");
-  endDate.setAttribute("type", "month");
-  endDate.setAttribute("placeholder", "mm_yyyy");
-  endDate.setAttribute("id", "endDate");
-
-  // creating tittle
-  let tittle = document.createElement("input");
-  tittle.setAttribute("type", "text");
-  tittle.setAttribute("placeholder", "project Tittle");
-  tittle.setAttribute("id", "tittle");
-
-  // creating employer
-  let employer = document.createElement("input");
-  employer.setAttribute("type", "text");
-  employer.setAttribute("placeholder", "employer");
-  employer.setAttribute("id", "employer");
-
-  // creating textarea for description
-  let description = document.createElement("textarea");
-  description.setAttribute("placeholder", "description");
-  description.setAttribute("id", "description");
-
-  //here appending the all elements
-  addedProj.append(
-    labelStartDate,
-    startDate,
-    labelEndDate,
-    endDate,
-    tittle,
-    description
-  );
-}
-
-/*********************************************************************************************************
- * @param
- * the function rendering the education form dynamically when user click on button
- * @returns
- **********************************************************************************************************/
-
-function renderEducationForm() {
-  // creating label
-  let labelStartDate = document.createElement("label");
-  labelStartDate.textContent = "Start Date";
-
-  // creating stat date
-  let startDate = document.createElement("input");
-  startDate.setAttribute("type", "month");
-  startDate.setAttribute("placeholder", "mm_yyyy");
-  startDate.setAttribute("id", "startDate");
-
-  // creating label
-  let labelEndDate = document.createElement("label");
-  labelEndDate.textContent = "End Date";
-
-  // creating end Date
-  let endDate = document.createElement("input");
-  endDate.setAttribute("type", "month");
-  endDate.setAttribute("placeholder", "mm_yyyy");
-  endDate.setAttribute("id", "endDate");
-
-  // creating qualification
-  let qualification = document.createElement("input");
-  qualification.setAttribute("type", "text");
-  qualification.setAttribute("placeholder", "Qualification");
-  qualification.setAttribute("id", "Qualification");
-
-  //creating school/collage
-  let school = document.createElement("input");
-  school.setAttribute("type", "text");
-  school.setAttribute("placeholder", "school/collage");
-  school.setAttribute("id", "school/collage");
-
-  //creating description
-  let description = document.createElement("textarea");
-  description.setAttribute("placeholder", "description");
-  description.setAttribute("id", "description");
-
-  //here appending the all elements
-  addedEdu.append(
-    labelStartDate,
-    startDate,
-    labelEndDate,
-    endDate,
-    qualification,
-    school,
-    description
-  );
-}
-
-addEducational.addEventListener("click", () => {
-  renderEducationForm();
-});
-
-addProject.addEventListener("click", () => {
-  renderProjectForm();
+addedEmp.addEventListener("click", (e) => {
+  let clickedElement = e.target;
+  if (clickedElement.textContent === "Save") {
+    renderEmploymentCard();
+  } else if (clickedElement.textContent === "Cancel") {
+    addedEmp.innerHTML = "";
+  }
 });
 
 addEmployment.addEventListener("click", () => {
-  renderEmploymentForm();
+  if (addedEmp.children.length === 0) {
+    renderEmploymentForm();
+  }
 });
