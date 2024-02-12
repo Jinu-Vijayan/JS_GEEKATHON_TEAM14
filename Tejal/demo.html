@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invoice Generator</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="demo.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
@@ -62,15 +62,15 @@
                         <p style="text-align: center;" id="item_details" required>Item Details</p><br>
                         <button id="add-items" style="display: none;" required></button>
                         <div class="float">
-                            <a href="#" class="float" id="add-row">
-                                <span class="material-icons plus" onclick="addNewRow()">add</span>
+                            <a href="#" class="float">
+                                <span class="material-icons plus" id="add-row">add</span>
                             </a>
                         </div>
                     </div>
                     <hr><br>
 
 
-                    <!-- <div id="added">
+                    <div id="added">
                         <!-- <div class="third" id="data" style="display: flex;">
                             <div class="third_left">
                                 <p>ITEMS</p>
@@ -97,85 +97,86 @@
 
                         </div><br> -->
 
-                </div> -->
-                <div class="invoice-container">
-
-
-
-                    <div class="invoice-body">
-                        <table>
-                            <thead>
-                                <th style="padding-left:12px;width: 50%;">
-                                    <p>PRODUCT</p>
-                                </th>
-                                <th>UNIT</th>
-                                <th>PRICE</th>
-                                <th>AMOUNT</th>
-                                <th style="text-align: right;">ACTION</th>
-                            </thead>
-
-                            <tbody id="table-body">
-                                <!-- <tr class="single-row" id="dataAdded">
-
-                                    </tr> -->
-
-
-
-                            </tbody>
-
-                        </table>
-
-
                     </div>
-                </div>
+                    <!-- <div class="invoice-container">
 
+
+
+                        <div class="invoice-body">
+                            <table>
+                                <thead>
+                                    <th style="padding-left:12px;width: 50%;">
+                                        <p>PRODUCT</p>
+                                    </th>
+                                    <th>UNIT</th>
+                                    <th>PRICE</th>
+                                    <th>AMOUNT</th>
+                                    <th style="text-align: right;">ACTION</th>
+                                </thead>
+
+                                <tbody id="table-body">
+                                    <tr class="single-row" id="dataAdded">
+
+                                    </tr>
+
+
+
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div> -->
+
+
+
+                </div>
 
 
             </div>
 
+            <div class="left">
 
-        </div>
-
-        <div class="left">
-
-            <br><br>
-            <!-- <button type="button" class="btn btn-info btn-lg">Open
+                <br><br>
+                <!-- <button type="button" class="btn btn-info btn-lg">Open
                     Modal</button> -->
-            <button id="review" data-toggle="modal" data-target="#myModal" onclick="addData()">Review
-                Invoice</button>
-            <h3 style="text-align: center;">Total RS.</h3>
-            <div class="total">
+                <button id="review" data-toggle="modal" data-target="#myModal" onclick="addData()">Review
+                    Invoice</button>
+                <h3 style="text-align: center;">Total RS.</h3>
+                <div class="total">
 
 
 
 
-                <!-- <div class="amount"> -->
-                <div id="invoice">
-                    <div id="sum">
-                        <!-- <label for="">Total</label> -->
-                        <input type="text" placeholder="0.00" name="total" class="total" id="total">
+                    <!-- <div class="amount"> -->
+                    <div id="invoice">
+                        <div id="sum">
+                            <!-- <label for="">Total</label> -->
+                            <input type="text" placeholder="0.00" name="total" class="total" id="total">
+                        </div>
                     </div>
+
+                    <!-- </div> -->
+
+                </div>
+                <br><br>
+
+                <div id="buttons">
+                    <!-- <button id="share" class="print" onclick="add()"><img src="./images/printer.png"
+                            alt="">Print</button> -->
+                    <button id="share" onclick="generatePDF()"><img src="./images/downloading.png"
+                            alt="">Download</button>
+                </div><br>
+
+                <div id="buttons">
+                    <!-- <button id=" tell" onclick="getquotes(api_url)">New Joke</button> -->
+                    <button style="border: 3px solid green;" id="share"><img
+                            src=" https://th.bing.com/th/id/OIP.q4izKWX9O6JYUnROwnLE1QHaHa?pid=ImgDet&w=192&h=192&c=7&dpr=1.3"
+                            alt="">Share</button>
                 </div>
 
-                <!-- </div> -->
-
             </div>
-            <br><br>
-
-            <div id="buttons">
-                <!-- <button id="share" class="print" onclick="add()"><img src="./images/printer.png"
-                            alt="">Print</button> -->
-                <button id="share" onclick="generatePDF()"><img src="./images/downloading.png" alt="">Download</button>
-            </div><br>
-
-            <div id="buttons">
-                <!-- <button id=" tell" onclick="getquotes(api_url)">New Joke</button> -->
-                <button style="border: 3px solid green;" id="share"><img
-                        src=" https://th.bing.com/th/id/OIP.q4izKWX9O6JYUnROwnLE1QHaHa?pid=ImgDet&w=192&h=192&c=7&dpr=1.3"
-                        alt="">Share</button>
-            </div>
-
-        </div>
 
         </div>
 
@@ -326,8 +327,8 @@
 
 
 
-    <script src="main.js"></script>
-    <script src="data.js"></script>
+    <script src="demo.js"></script>
+    <!-- <script src="data.js"></script> -->
 </body>
 
 </html>
