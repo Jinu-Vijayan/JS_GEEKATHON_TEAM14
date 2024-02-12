@@ -76,6 +76,8 @@
         nameFormContainer.style.left = "50%";
         nameFormContainer.style.backgroundColor = "white";
         nameFormContainer.style.padding = "0.625rem";
+        nameFormContainer.style.borderRadius = "0.625rem"
+        nameFormContainer.style.boxShadow = "-5px 5px 2px 2px #8c8b8b"
     
         nameInput.value = newBookmark.desc;
     
