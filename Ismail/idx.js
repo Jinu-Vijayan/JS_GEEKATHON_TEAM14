@@ -19,10 +19,10 @@ const headColor = document.getElementById("headColor");
 const headTextColor = document.getElementById("headTextColor");
 const headerText = document.getElementById("headerText");
 
-headTextColor.addEventListener('input', (e) => {
+// here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
+headTextColor.addEventListener("input", (e) => {
   let headTextColorVal = e.target.value;
   headerText.style.color = headTextColorVal;
-
 });
 
 headColor.addEventListener("input", (e) => {
@@ -61,7 +61,9 @@ Personal.addEventListener("keyup", (e) => {
  ************************************************************************************************/
 
 const skillsDynamicAdd = document.querySelector(".skillsDynamicAdd");
-const skillsDynamicAddMinima = document.querySelector(".skillsDynamicAddMinima");
+const skillsDynamicAddMinima = document.querySelector(
+  ".skillsDynamicAddMinima"
+);
 
 Professional.addEventListener("keyup", (e) => {
   let inputId = e.target.id;
@@ -74,9 +76,7 @@ Professional.addEventListener("keyup", (e) => {
     addSummary.children[0].innerHTML = inputVal;
   } else if (inputId == "ProfessionalSkills") {
     skillsDynamicAdd.children[0].innerHTML = inputVal;
-    // console.log(skillsDynamicAdd.children[0].innerHTML);
     skillsDynamicAddMinima.children[0].innerHTML = inputVal;
-    // console.log(skillsDynamicAddMinima.children[0].innerHTML);
   }
 });
 
@@ -104,6 +104,20 @@ selectType.addEventListener("change", (e) => {
 // this is for Project Card Update form and creation card
 
 const addEdux = document.querySelector(".addEdux");
+
+/****************************************************************************************************
+ * @param
+ * clearProjectForm clearing the data from the form when user filled the details once
+ * @returns
+ *****************************************************************************************************/
+
+function clearEducationForm() {
+  document.getElementById("startDate").value = "";
+  document.getElementById("endDate").value = "";
+  document.getElementById("qualification").value = "";
+  document.getElementById("school-collage").value = "";
+  document.getElementById("description").value = "";
+}
 
 /******************************************************************************************************
  *@param
@@ -216,6 +230,7 @@ addedEdu.addEventListener("click", (e) => {
   let clickedElement = e.target;
   if (clickedElement.textContent === "Save") {
     renderEducationCard();
+    clearEducationForm();
   } else if (clickedElement.textContent === "Cancel") {
     addedEdu.innerHTML = "";
   }
@@ -228,7 +243,20 @@ addEducational.addEventListener("click", () => {
 });
 
 // this is for Project Card Update form and creation card
+
 const addPro = document.querySelector(".addPro");
+/****************************************************************************************************
+ * @param
+ * clearProjectForm clearing the data from the form when user filled the details once
+ * @returns
+ *****************************************************************************************************/
+
+function clearProjectForm() {
+  document.getElementById("startDate").value = "";
+  document.getElementById("endDate").value = "";
+  document.getElementById("tittle").value = "";
+  document.getElementById("description").value = "";
+}
 
 /******************************************************************************************************
  *@param
@@ -333,6 +361,7 @@ addedPro.addEventListener("click", (e) => {
   let clickedElement = e.target;
   if (clickedElement.textContent === "Save") {
     renderProjectCard();
+    clearProjectForm();
   } else if (clickedElement.textContent === "Cancel") {
     addedPro.innerHTML = "";
   }
@@ -347,6 +376,19 @@ addProject.addEventListener("click", () => {
 // this is for addEmployee Card Update form and creation card
 
 const addExp = document.querySelector(".addExp");
+/****************************************************************************************************
+ * @param
+ * clearEmploymentForm clearing the data from the form when user filled the details once
+ * @returns
+ *****************************************************************************************************/
+
+function clearEmploymentForm() {
+  document.getElementById("startDate").value = "";
+  document.getElementById("endDate").value = "";
+  document.getElementById("tittle").value = "";
+  document.getElementById("employer").value = "";
+  document.getElementById("description").value = "";
+}
 
 /******************************************************************************************************
  *@param
@@ -373,8 +415,10 @@ function renderEmploymentCard() {
   let pTag2 = document.createElement("p");
 
   liTag.textContent = tittleVal;
+
   addExp2TagChild1.append(liTag);
   pTag1.textContent = startDateVal;
+
   pTag2.textContent = endDateVal;
   addExp2TagChild2.append(pTag1, pTag2);
 
@@ -382,6 +426,7 @@ function renderEmploymentCard() {
   addExp2Tag.append(addExp2TagChild1, addExp2TagChild2);
 
   addExpChild1.textContent = employerVal;
+
   addExpChild2.textContent = descriptionVal;
 
   addExp.append(addExp2Tag, addExpChild1, addExpChild2);
@@ -394,6 +439,7 @@ function renderEmploymentCard() {
 *********************************************************************************************************/
 function renderEmploymentForm() {
   const employmentFormContainer = document.createElement("div");
+  const saveAndCancelBtn = document.createElement("div");
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
 
@@ -435,6 +481,8 @@ function renderEmploymentForm() {
   description.setAttribute("placeholder", "description");
   description.setAttribute("id", "description");
 
+  saveAndCancelBtn.append(saveBtn, cancelBtn);
+
   employmentFormContainer.append(
     labelStartDate,
     startDate,
@@ -443,8 +491,7 @@ function renderEmploymentForm() {
     tittle,
     employer,
     description,
-    saveBtn,
-    cancelBtn
+    saveAndCancelBtn
   );
 
   addedEmp.append(employmentFormContainer);
@@ -454,6 +501,7 @@ addedEmp.addEventListener("click", (e) => {
   let clickedElement = e.target;
   if (clickedElement.textContent === "Save") {
     renderEmploymentCard();
+    clearEmploymentForm();
   } else if (clickedElement.textContent === "Cancel") {
     addedEmp.innerHTML = "";
   }
