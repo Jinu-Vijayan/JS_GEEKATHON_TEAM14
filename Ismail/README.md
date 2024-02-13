@@ -82,3 +82,85 @@ Follow these steps to get the Resume Template up and running:
    - After completing the sections and ensuring accuracy, find the "Download PDF" button.
    - Click the button to generate and save your resume as a PDF file locally.
    - Access the saved PDF for sharing or printing as needed.
+
+## Screenshots
+
+### copy button
+
+![Alt Text](./images/coppyBtn.png)
+
+### download button
+
+![Alt Text](./images/downLoadbtn.png)
+
+### when we go to fill the Personal data
+
+![Alt Text](./images/personalForm.png)
+
+### when we go to fill the professional data
+
+![Alt Text](./images/professionalForm.png)
+
+### here Adding employment form dynamically when user will click on button
+
+![Alt Text](./images/employementForm.png)
+
+### here Adding Project form dynamically when user will click on button
+
+![Alt Text](./images/projectForm.png)
+
+### here Adding educational form dynamically when user will click on button
+
+![Alt Text](./images/educationalForm.png)
+
+### when navigate the template so this is the minimalist Template
+
+![Alt Text](./images/minimaList.png);
+
+### when navigate the template so this is the toColumn Template
+
+![Alt Text](./images/twoColumn.png);
+
+### when pressed on download button template will download
+
+![Alt Text](./images/afterDownload.png);
+
+## Difficulties Faced
+
+While developing Resume Template, we encountered several challenges, including:
+
+- **User Experience Optimization**: Balancing functionality with user experience was challenging
+
+- **Debugging**: Identifying and resolving bugs.
+
+- **Documentation**: Understanding and following the documentation for resume Template proved to be challenging at times, as it required careful interpretation and implementation.
+
+## Compatibility
+
+### Supported Platforms
+
+The resume template project is compatible with the following platforms:
+
+- Windows
+- macOS
+- Linux
+
+### Software Dependencies
+
+Ensure the following software dependencies are installed on your Windows system:
+
+- **LaTeX Distribution:** [MiKTeX](https://miktex.org/) for Windows.
+- **Text Editor:** [Visual Studio Code](https://code.visualstudio.com/), [Sublime Text](https://www.sublimetext.com/), or [Atom](https://atom.io/)
+
+### Browser Compatibility
+
+Tested on modern web browsers:
+
+- Google Chrome
+- Mozilla Firefox
+- Microsoft Edge
+- Safari
+
+## Hosted Link:-
+
+- [Resume Template](https://jinu-vijayan.github.io/JS_GEEKATHON_TEAM14/Ismail/idx.html)

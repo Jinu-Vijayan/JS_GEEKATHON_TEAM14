@@ -50,7 +50,7 @@ main {
 
 .container {
   width: 30%;
-  height: auto;
+  height: 57rem;
   padding: 10px 15px;
   display: flex;
   justify-content: flex-start;
@@ -58,7 +58,11 @@ main {
   gap: 1rem;
   margin-top: 1rem;
   margin-left: 1rem;
-  /* background-color: aquamarine; */
+  overflow-y: scroll;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
 }
 
 .leftBox {
@@ -191,9 +195,9 @@ main {
   gap: 0.5rem;
 }
 
-.adding-employment button,
-.adding-project button,
-.adding-education button {
+.adding-employment .saveBtn,
+.adding-project .saveBtn,
+.adding-education .saveBtn {
   width: 100%;
   height: 2rem;
   display: flex;
@@ -209,10 +213,36 @@ main {
   cursor: pointer;
 }
 
-.adding-employment button:hover,
-.adding-project button:hover,
-.adding-education button:hover {
-  background-color: hsl(240, 100%, 70%);
+.adding-employment .saveBtn:hover,
+.adding-project .saveBtn:hover,
+.adding-education .saveBtn:hover {
+  background-color: hsl(240, 100%, 45%);
+  transform: scale(0.98);
+  cursor: pointer;
+}
+
+.adding-employment .cancelBtn,
+.adding-project .cancelBtn,
+.adding-education .cancelBtn {
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0;
+  background-color: hsl(0, 100%, 50%);
+  color: white;
+  font-size: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.adding-employment .cancelBtn:hover,
+.adding-project .cancelBtn:hover,
+.adding-education .cancelBtn:hover {
+  background-color: hsl(0, 100%, 45%);
   transform: scale(0.98);
   cursor: pointer;
 }

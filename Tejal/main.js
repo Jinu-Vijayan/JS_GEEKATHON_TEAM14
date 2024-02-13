@@ -1,5 +1,5 @@
 
-let array=[]
+
 
 // add a dyanamic date in date portion
 let cdate=document.getElementById("cDate")
@@ -83,7 +83,7 @@ document.getElementById("add-row").addEventListener("click", (e)=> {
 // demo
 
 const tBody = document.getElementById("table-body");
-let arrays=[];
+
 let addNewRow =()=> {
     const row = document.createElement("tr");
     row.className = "single-row";
@@ -103,12 +103,45 @@ let addNewRow =()=> {
     let prices=document.querySelector(".price")
     let amt=document.querySelector(".amount")
 
-    // let newRow={
-    //     product:"",
-    //     price:"",
-    //     Quantity:"",
-    //     amount:""
-    // }
+    //create a array of obj
+    let allDetails=[]
+    allDetails.push({
+        product:"",
+        price:"",
+        Quantity:"",
+        amount:""
+    });
+
+    allDetails.map((value, index) => {
+        product.value=item.name;
+        product.addEventListener('input',()=>{
+             item.name=product.value;
+        })
+
+        quantity.value=item.Quantity
+        quantity.addEventListener('input',()=>{
+
+            item.Quantity=quantity.value
+        })
+
+        prices.value=item.price;
+        prices.addEventListener('input',()=>{
+            item.price=prices.value;
+        })
+
+        amt.value=item.amount;
+        amt.addEventListener('input',()=>{
+            item.amount=amt.value;
+        })
+
+        console.log(allDetails);
+
+
+    })
+
+    
+
+    
 
 
 
@@ -199,13 +232,11 @@ function calculate() {
 function addData() {
     let tableBody=document.getElementById("table-body");
     console.log(tableBody.children);
-    for (let i = 0; i < tableBody.children.length; i++) {
+    for (let i = 0; i < tableBody.length; i++) {
         // const element = array[i];
-        tableBody.innerHTML += '<tr><td>'  + prod_name + '</td><td>' + price + '</td> <td>' + quantity + '</td><td>' + amount + '</td></tr>'
+        
         
     }
-    
-//   prod_name = document.getElementById("product").value;
 //   price=document.getElementById("price").value
 //   quantity=document.getElementById("unit").value
 //   document.getElementById('newtr').innerHTML += '<tr><td>'  + prod_name + '</td><td>' + price + '</td> <td>' + quantity + '</td><td>' + amount + '</td></tr>'
@@ -214,12 +245,10 @@ function addData() {
 //   document.getElementById("total-amount").innerHTML = price * quantity - tax;
 //   let total_answer=document.getElementById("total").value
 
-//    document.getElementsByName("subtotal-amount").innerText=total_answer;
+   document.getElementsByName("subtotal-amount").innerText=total_answer;
   
   
 }
-
-
 // const divi=document.querySelector(".single-row")
 // console.log(divi.children);
 // array.push(divi.children)
