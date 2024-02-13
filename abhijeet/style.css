@@ -50,7 +50,7 @@ nav #login {
 #background-img{
     height: 110vh;
     width: 100vw;
-    background-image: url('assets/pexels-pixabay-531880.jpg'); 
+    background-image: url('assets/hweader-background.jpg'); 
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -133,6 +133,9 @@ h1{
     border-radius: 5px;
     margin-top: 2rem            ;
 }
+.card-info form {
+    margin-top: 1.2rem;
+}
 footer {
     width: 100vw;
     height: 40vh;
@@ -181,6 +184,9 @@ footer {
     padding: 4px;
     color: darkgray;
 }
+#hamburger {
+    display: none;
+}
 
 @media screen and (max-width: 1000px) {
     .card-section {
@@ -206,5 +212,14 @@ footer {
     }
     h1 {
         font-size: 2rem;
+    }
+    #hamburger {
+        display: block;
+    }
+    nav #navigation  {
+        display: none;
+    }
+    nav #login {
+        display: none;
     }
 }
