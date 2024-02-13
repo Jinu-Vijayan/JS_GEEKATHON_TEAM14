@@ -8,7 +8,7 @@ Welcome to the Trello Clone project! This project aims to replicate the core fun
 
 ``` bash
 git clone https://github.com/Jinu-Vijayan/JS_GEEKATHON_TEAM14/tree/trello
-
+```
 
 ## Learning Objectives
 
