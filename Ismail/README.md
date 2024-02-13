@@ -163,4 +163,4 @@ Tested on modern web browsers:
 
 ## Hosted Link:-
 
-- [GeeksterPok Project](https://jinu-vijayan.github.io/JS_GEEKATHON_TEAM14/Ismail/idx.html)
+- [Resume Template](https://jinu-vijayan.github.io/JS_GEEKATHON_TEAM14/Ismail/idx.html)
