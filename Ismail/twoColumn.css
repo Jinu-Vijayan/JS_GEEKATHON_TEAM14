@@ -11,34 +11,21 @@ body {
   overflow-x: hidden;
 }
 
+main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  background-color: #f3f3f6;
+}
+
 .downLoad {
   height: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 30px;
-}
-.downLoad img {
-  width: 2.5vw;
-}
-
-#pdf {
-  width: 9rem;
-  height: 2rem;
-  background-color: green;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4px;
-}
-
-main {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  background-color: #f3f3f6;
+  padding: 0px 66px;
+  cursor: pointer;
 }
 
 .container {
@@ -54,7 +41,7 @@ main {
 }
 
 .container-2 {
-  width: 70%;
+  width: 68%;
   margin-top: 1rem;
   height: auto;
   display: flex;
@@ -63,7 +50,7 @@ main {
 
 .dropDown1 {
   width: 85%;
-  height: 55rem;
+  height: 56rem;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   filter: drop-shadow(2px 4px 4px black);
 }
@@ -81,6 +68,8 @@ main {
 
 .colorChange p {
   font-size: 17px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }
 
 .result-details {
@@ -120,6 +109,8 @@ main {
   flex-wrap: wrap;
   gap: 10px;
   padding: 10px 10px;
+  letter-spacing: 1px;
+  word-spacing: 10px;
 }
 
 .skills-for-minimalist {
@@ -138,7 +129,9 @@ main {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 5px;
+  gap: 7px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }
 
 .contactDetails p span {
@@ -146,6 +139,16 @@ main {
   justify-content: flex-start;
   align-items: flex-start;
   text-wrap: wrap;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+}
+
+#email {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  word-wrap: break-word;
 }
 
 .result-details-right {
@@ -163,11 +166,13 @@ main {
 
 .summary {
   width: 100%;
-  margin-top: 0.5rem;
+  margin-top: 1.4rem;
 }
 .addSummary p {
   margin-top: 0.4rem;
   margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }
 
 .Professional-Exp {
@@ -193,6 +198,8 @@ main {
   gap: 1rem;
   flex-direction: column;
   padding: 0px 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
 }
 
 .addExp2Tag,
