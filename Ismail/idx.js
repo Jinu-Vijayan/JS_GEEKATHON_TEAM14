@@ -29,8 +29,10 @@ function generatePDF() {
 }
 
 downLoad.addEventListener("click", () => {
-  console.log("working");
   generatePDF();
+  setTimeout(() => {
+    alert("PDF Downloaded");
+  }, 1000);
 });
 
 // here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
@@ -183,9 +185,11 @@ function renderEducationForm() {
   const educationFormContainer = document.createElement("div");
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
+  saveBtn.classList.add("saveBtn");
 
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
+  cancelBtn.classList.add("cancelBtn");
 
   // creating label
   let labelStartDate = document.createElement("label");
@@ -318,9 +322,11 @@ function renderProjectForm() {
   const projectFormContainer = document.createElement("div");
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
+  saveBtn.classList.add("saveBtn");
 
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
+  cancelBtn.classList.add("cancelBtn");
 
   //creating label
   let labelStartDate = document.createElement("label");
@@ -456,9 +462,11 @@ function renderEmploymentForm() {
   const saveAndCancelBtn = document.createElement("div");
   const saveBtn = document.createElement("button");
   saveBtn.textContent = "Save";
+  saveBtn.classList.add("saveBtn");
 
   const cancelBtn = document.createElement("button");
   cancelBtn.textContent = "Cancel";
+  cancelBtn.classList.add("cancelBtn");
 
   // creating label date
   let labelStartDate = document.createElement("label");

@@ -82,3 +82,9 @@ Follow these steps to get the Resume Template up and running:
    - After completing the sections and ensuring accuracy, find the "Download PDF" button.
    - Click the button to generate and save your resume as a PDF file locally.
    - Access the saved PDF for sharing or printing as needed.
+
+## Screenshots
+
+### copy button
+
+![Alt Text](./images/coppyBtn.png)
