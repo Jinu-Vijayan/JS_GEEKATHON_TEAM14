@@ -6,9 +6,8 @@
 
 body{
     min-height: 100vh;
-    background: url("https://www.imageshine.in/uploads/gallery/Free-vector-watercolor-background-Wallpaper.jpg");
+    background: url("https://wallpapers.com/images/featured/desktop-lsjkr6wg7ctq97qv.jpg");
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
 }
 .conatiner{
@@ -47,12 +46,13 @@ body{
 }
 .board{
     width: 23%;
-    background-color: rgb(175, 169, 169);
+    background-color: rgb(175, 169, 169, 0.5);
     padding: 1rem;
     margin-right: 1rem;
     height: fit-content;
     margin-right: 1rem;
     margin-bottom: 2rem;
+    border-radius: 5px;
 }
 .board-title-container{
     display: flex;
@@ -162,7 +162,7 @@ body{
     margin: auto;
     background: white;
     padding: 1rem;
-    position: fixed;
+    position: absolute;
     left: 50%;
     transform: translate(-50%, 10px);
     box-shadow: 5px 12px 23px 10px black;

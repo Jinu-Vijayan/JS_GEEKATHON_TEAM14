@@ -268,12 +268,14 @@ const displayModal = (cardId) => {
     const description = cardsArray[cardsArrayIndex].description;
     const date = cardsArray[cardsArrayIndex].date;
     const lable = cardsArray[cardsArrayIndex].lable;
+    const task = cardsArray[cardsArrayIndex].task;
 
     document.querySelector(".modal-conatiner").style.display = "block";
     let cardTitle = document.querySelector(".card-title ");
     let cardDescription = document.querySelector(".card-description");
     let cardDate = document.querySelector(".card-date");
     let cardLable = document.querySelector(".card-lable");
+    let cardTask = document.querySelector(".card-task");
 
     document.querySelector(".des-card-id").value = cardsArray[cardsArrayIndex].cardId;
 
@@ -281,6 +283,7 @@ const displayModal = (cardId) => {
     cardDescription.innerText = description ? description : "Add Description";
     cardDate.value = date ? date : null;
     cardLable.innerText = lable ? lable : "Add Lable";
+    cardTask.innerText = task ? task : "Add Task";
 
     //  update card title
     cardTitle.addEventListener("click", (e) => {
@@ -301,6 +304,13 @@ const displayModal = (cardId) => {
     cardLable.addEventListener("click", (e) => {
 
         let cardLableCon = document.getElementById("card-lab-con");
+        cardLableCon.style.display = "block";
+        e.target.style.display = "none";
+    });
+
+    cardTask.addEventListener("click", (e) => {
+
+        let cardLableCon = document.getElementById("card-task-con");
         cardLableCon.style.display = "block";
         e.target.style.display = "none";
     });
@@ -390,6 +400,26 @@ function addCardLable() {
     displayModal(cardId);
 }
 
+// add card task
+function addCardTask(){
+    let cardTaskInputValue = document.querySelector(".card-task-input").value;
+    let cardId = document.querySelector(".des-card-id").value;
+
+    let index = findIndexWithCardId(boardsArray, cardId);
+
+    let cardsArray = boardsArray[index].cardsData;
+    let cardsArrayIndex = findIndexInCardsData(cardsArray, cardId);
+
+    cardsArray[cardsArrayIndex].task = cardTaskInputValue;
+    localStorage.setItem("boardsData", JSON.stringify(boardsArray));
+
+    document.getElementById("card-task-con").style.display = "none";
+    document.querySelector(".card-task").style.display = "block";
+    cardTaskInputValue.innerText = "";
+    displayData();
+    displayModal(cardId);
+}
+
 // get color
 const getColor = document.querySelector(".colors");
 getColor.addEventListener("click", (e) => {
@@ -425,7 +455,7 @@ getColor.addEventListener("click", (e) => {
 })
 
 // remove card description form
-function removeCardDesForm() {
+function removeCardTitleForm() {
     document.querySelector("#card-tittle-con").style.display = "none";
     document.querySelector(".card-title").style.display = "block";
 }
@@ -435,9 +465,14 @@ function removeCardDesForm() {
     document.querySelector(".card-description").style.display = "block";
 }
 
-function removeCardDesForm() {
+function removeCardLabForm() {
     document.querySelector("#card-lab-con").style.display = "none";
     document.querySelector(".card-lable").style.display = "block";
+}
+
+function removeCardTaskForm() {
+    document.querySelector("#card-task-con").style.display = "none";
+    document.querySelector(".card-task").style.display = "block";
 }
 
 //  find index using card id
