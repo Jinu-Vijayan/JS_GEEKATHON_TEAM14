@@ -2,7 +2,7 @@
 
 ## Invoice Generator<br>
 
-Explore Here :https://jinu-vijayan.github.io/JS_GEEKATHON_TEAM14/Tejal/
+Explore Here :https://invoice-generator-gamma-rust.vercel.app/
 
 ## Tejal Mohod
 
