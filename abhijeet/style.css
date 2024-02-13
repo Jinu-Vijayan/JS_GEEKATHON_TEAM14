@@ -153,10 +153,9 @@ footer {
     align-items: center;
     /* background-color: aquamarine; */
 }
-#footer-logo {
+#footer-logo img {
     height: 60px;
     width: 60px;
-    background-color: aliceblue;
     border-radius: 50%;
 }
 #email > p {
