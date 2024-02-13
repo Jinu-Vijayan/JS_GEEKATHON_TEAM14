@@ -50,10 +50,10 @@ body {
 .dropDown1 {
   width: 85%;
   min-height: 56rem;
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; */
+  /* align-items: center; */
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
   overflow-y: hidden;
   margin-bottom: 2rem;

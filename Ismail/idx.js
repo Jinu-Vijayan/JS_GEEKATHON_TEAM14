@@ -22,7 +22,7 @@ const headerText = document.getElementById("headerText");
 const downLoad = document.getElementById("downLoad");
 
 function generatePDF() {
-  const element = document.getElementById("dropDown1");
+  const element = document.getElementById("container-2");
   console.log(element);
 
   html2pdf().from(element).save();
@@ -30,17 +30,17 @@ function generatePDF() {
 
 downLoad.addEventListener("click", () => {
   generatePDF();
-  setTimeout(() => {
-    alert("PDF Downloaded");
-  }, 1000);
+  // setTimeout(() => {
+  //   alert("PDF Downloaded");
+  // }, 1000);
 });
 
-// here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
 headTextColor.addEventListener("input", (e) => {
   let headTextColorVal = e.target.value;
   headerText.style.color = headTextColorVal;
 });
 
+// here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
 headColor.addEventListener("input", (e) => {
   let headerColorVal = e.target.value;
   colorChange.style.backgroundColor = headerColorVal;
