@@ -9,15 +9,24 @@ body {
   height: auto;
   width: 100vw;
   overflow-x: hidden;
+  background-color: #238f51;
 }
 
+header {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  margin-top: -3rem;
+  background-color: #bde5e1;
+}
 .downLoad {
   height: 3rem;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 70px;
-  cursor: pointer;
+  padding: 0px 31px;
 }
 .downLoad img {
   width: 2.5vw;
@@ -25,40 +34,43 @@ body {
 
 #pdf {
   width: 9rem;
-  height: 2rem;
-  background-color: hsl(120, 78%, 27%);
+  height: 2.2rem;
+  background-color: hsl(0, 0%, 8%);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 4px;
-  border-radius: 2px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-#pdf:hover {
-  background-color: hsl(120, 78%, 20%);
+#pdf:active {
+  background-color: hsl(0, 0%, 20%);
   transform: scale(0.98);
+  transform: translate(1px, 1px);
 }
 
 main {
   width: 100%;
   height: auto;
   display: flex;
+  align-items: center;
   justify-content: space-around;
-  background-color: #f3f3f6;
+  margin-top: 3rem;
 }
 
 .container {
+  margin-bottom: 1.5rem;
   width: 30%;
-  height: 57rem;
+  height: 60rem;
   padding: 10px 15px;
   display: flex;
-  justify-content: flex-start;
-  align-items: start;
+  justify-content: center;
+  align-items: center;
   gap: 1rem;
-  margin-top: 1rem;
-  margin-left: 1rem;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .container::-webkit-scrollbar {
@@ -67,11 +79,13 @@ main {
 
 .leftBox {
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  /* padding-top: 3rem; */
 }
 .optionDiv {
   width: 100%;
@@ -83,8 +97,13 @@ main {
 
 #selectType {
   width: 100%;
-  height: 2rem;
+  height: 2.2rem;
   font-size: 16px;
+  border-color: darkgray;
+  border-radius: 5px;
+  padding: 0px 10px;
+  outline-color: darkgray;
+  /* outline: 1px violet; */
 }
 
 .header-color,
@@ -113,39 +132,40 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
 .Personal input {
-  height: 2rem;
+  height: 2.2rem;
   padding: 0px 10px;
   font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  outline-color: darkgray;
 }
 
 .Professional {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
 .Professional input {
-  height: 2rem;
+  height: 2.2rem;
   padding: 0px 10px;
   font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+  outline-color: darkgray;
 }
 
 .Professional textarea {
   padding: 10px 10px;
   font-size: 16px;
-}
-
-.container-2 {
-  width: 70%;
-  margin-top: 1rem;
-  height: auto;
-  display: flex;
-  justify-content: center;
+  border: 0;
+  border-radius: 5px;
+  outline-color: darkgray;
 }
 
 .addEmployment,
@@ -161,17 +181,19 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2.2rem;
-  background-color: hsl(120, 61%, 40%);
+  height: 2.5rem;
+  background-color: hsl(180, 100%, 25%);
   color: white;
   border-radius: 5px;
+  font-variant: small-caps;
 }
 
-.addEmployment p:hover,
-.addProject p:hover,
-.addEducational p:hover {
-  background-color: hsl(120, 43%, 35%);
+.addEmployment p:active,
+.addProject p:active,
+.addEducational p:active {
+  background-color: hsl(180, 100%, 35%);
   transform: scale(0.98);
+  transform: translate(1px, 1px);
 }
 
 .adding-employment,
@@ -192,14 +214,14 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 10px;
 }
 
 .adding-employment .saveBtn,
 .adding-project .saveBtn,
 .adding-education .saveBtn {
   width: 100%;
-  height: 2rem;
+  height: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -213,11 +235,11 @@ main {
   cursor: pointer;
 }
 
-.adding-employment .saveBtn:hover,
-.adding-project .saveBtn:hover,
-.adding-education .saveBtn:hover {
+.adding-employment .saveBtn:active,
+.adding-project .saveBtn:active,
+.adding-education .saveBtn:active {
   background-color: hsl(240, 100%, 45%);
-  transform: scale(0.98);
+  transform: translate(1px, 1px);
   cursor: pointer;
 }
 
@@ -225,7 +247,7 @@ main {
 .adding-project .cancelBtn,
 .adding-education .cancelBtn {
   width: 100%;
-  height: 2rem;
+  height: 2.2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -239,11 +261,11 @@ main {
   cursor: pointer;
 }
 
-.adding-employment .cancelBtn:hover,
-.adding-project .cancelBtn:hover,
-.adding-education .cancelBtn:hover {
+.adding-employment .cancelBtn:active,
+.adding-project .cancelBtn:active,
+.adding-education .cancelBtn:active {
   background-color: hsl(0, 100%, 45%);
-  transform: scale(0.98);
+  transform: translate(1px, 1px);
   cursor: pointer;
 }
 
@@ -251,20 +273,307 @@ main {
 .adding-project input,
 .adding-education input {
   width: 100%;
-  height: 2rem;
-  padding: 5px 5px;
+  height: 2.2rem;
+  padding: 0px 15px;
   font-size: 16px;
   letter-spacing: 1px;
   word-spacing: 3px;
+  border: 0;
+  border-radius: 5px;
+  outline-color: darkgray;
 }
 
 .adding-employment textarea,
 .adding-project textarea,
 .adding-education textarea {
   width: 100%;
-  height: 8rem;
-  padding: 5px 10px;
+  height: 10rem;
+  padding: 10px 10px;
   font-size: 16px;
   letter-spacing: 1px;
   word-spacing: 3px;
+  border: 0;
+  border-radius: 5px;
+  outline-color: darkgray;
+}
+
+/* media Quarry */
+
+@media screen and (max-width: 320px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #238f51;
+  }
+
+  header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin-top: -3rem;
+    background-color: #bde5e1;
+  }
+  .downLoad {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 31px;
+  }
+  .downLoad img {
+    width: 10vw;
+  }
+
+  #pdf {
+    width: 9rem;
+    height: 2.2rem;
+    background-color: hsl(0, 0%, 8%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #pdf:active {
+    background-color: hsl(0, 0%, 20%);
+    transform: scale(0.98);
+    transform: translate(1px, 1px);
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 3rem;
+  }
+
+  .container {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 60rem;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding-top: 3rem; */
+  }
+  .optionDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 376px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #238f51;
+  }
+
+  header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin-top: -3rem;
+    background-color: #bde5e1;
+  }
+  .downLoad {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 31px;
+  }
+  .downLoad img {
+    width: 10vw;
+  }
+
+  #pdf {
+    width: 9rem;
+    height: 2.2rem;
+    background-color: hsl(0, 0%, 8%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #pdf:active {
+    background-color: hsl(0, 0%, 20%);
+    transform: scale(0.98);
+    transform: translate(1px, 1px);
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 3rem;
+  }
+
+  .container {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 60rem;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding-top: 3rem; */
+  }
+  .optionDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 377px) and (max-width: 426px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #238f51;
+  }
+
+  header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    margin-top: -3rem;
+    background-color: #bde5e1;
+  }
+  .downLoad {
+    height: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 31px;
+  }
+  .downLoad img {
+    width: 10vw;
+  }
+
+  #pdf {
+    width: 9rem;
+    height: 2.2rem;
+    background-color: hsl(0, 0%, 8%);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  #pdf:active {
+    background-color: hsl(0, 0%, 20%);
+    transform: scale(0.98);
+    transform: translate(1px, 1px);
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 3rem;
+  }
+
+  .container {
+    margin-bottom: 1.5rem;
+    width: 100%;
+    height: 60rem;
+    padding: 10px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .leftBox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* padding-top: 3rem; */
+  }
+  .optionDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    font-size: 18px;
+  }
 }

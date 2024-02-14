@@ -9,66 +9,50 @@ body {
   height: auto;
   width: 100vw;
   overflow-x: hidden;
+  background-color: #bde5e1;
 }
 
-/* main {
+main {
   width: 100%;
   height: auto;
   display: flex;
-  justify-content: space-around;
-  background-color: #f3f3f6;
-} */
-
-/* .downLoad {
-  height: 3rem;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 0px 66px;
-  cursor: pointer;
-} */
+  justify-content: space-between;
+  padding: 0rem 1rem;
+}
 
 /* .container {
-  width: 30%;
-  height: auto;
-  padding: 10px 15px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: start;
-  gap: 1rem;
-  margin-top: 1rem;
+  border: 1px solid red;
 } */
 
 .container-2 {
-  width: 68%;
-  margin-top: 1rem;
-  height: 60;
+  width: 55%;
+  margin-right: 2rem;
+  height: 57rem;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  /* border: 1px solid red; */
 }
 
 .dropDown1 {
-  width: 85%;
-  min-height: 56rem;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
-  /* align-items: center; */
+  width: 100%;
+  min-height: 55rem;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
-  overflow-y: hidden;
   margin-bottom: 2rem;
+  background-color: white;
+  border-radius: 5px;
 }
 
 .colorChange {
-  /* position: relative; */
-  height:9rem;
+  height: 10rem;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: flex-start;
   padding: 1rem 1.5rem;
-  background-color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .colorChange p {
@@ -76,7 +60,6 @@ body {
   letter-spacing: 1px;
   word-spacing: 3px;
 }
-
 
 .result-details {
   width: 100%;
@@ -88,7 +71,7 @@ body {
 .result-details-left {
   height: 100%;
   width: 30%;
-  background-color: #f3f3f6;
+  background-color: ghostwhite;
   padding: 0px 15px;
   display: flex;
   flex-direction: column;
@@ -118,6 +101,7 @@ body {
   letter-spacing: 1px;
   word-spacing: 10px;
   line-height: 25px;
+  font-variant: all-petite-caps;
 }
 
 .skills-for-minimalist {
@@ -151,6 +135,13 @@ body {
   word-spacing: 3px;
 }
 
+#number,
+#email,
+#location {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
 .result-details-right {
   width: 70%;
   height: 100%;
@@ -174,6 +165,7 @@ body {
   margin-bottom: 0.5rem;
   letter-spacing: 1px;
   word-spacing: 3px;
+  opacity: 0.8;
 }
 
 .Professional-Exp {
@@ -196,12 +188,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 5px;
   flex-direction: column;
   padding: 0px 5px;
   letter-spacing: 1px;
   word-spacing: 3px;
   line-height: 25px;
+  margin-bottom: 1rem;
+}
+
+.addExp :nth-child(3),
+.addPro :nth-child(3),
+.addExp :nth-child(3) {
+  opacity: 0.8;
 }
 
 .addExp2Tag,
@@ -213,11 +212,251 @@ body {
   align-items: center;
 }
 
+.addExp2Tag li,
+.addPro2Tag li,
+.addEdu2Tag li {
+  font-size: 17px;
+  font-weight: 600;
+  font-variant: small-caps;
+}
+
 .addExp2Tag :nth-child(2),
 .addPro2Tag :nth-child(2),
 .addEdu2Tag :nth-child(2) {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  font-size: 16px;
   gap: 7px;
+}
+
+@media screen and (max-width: 320px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #bde5e1;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+
+  /* .container {
+    border: 1px solid red;
+  } */
+
+  .container-2 {
+    width: 100%;
+    /* margin-right: 2rem; */
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    height: 57rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dropDown1 {
+    width: 100%;
+    min-height: 55rem;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .colorChange {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .colorChange p {
+    font-size: 17px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+  }
+
+  .result-details {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  .result-details-left {
+    height: 100%;
+    width: 30%;
+    background-color: ghostwhite;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 321px) and (max-width: 376px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #bde5e1;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+
+  /* .container {
+    border: 1px solid red;
+  } */
+
+  .container-2 {
+    width: 100%;
+    /* margin-right: 2rem; */
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    height: 57rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dropDown1 {
+    width: 100%;
+    min-height: 55rem;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .colorChange {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .colorChange p {
+    font-size: 17px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+  }
+
+  .result-details {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  .result-details-left {
+    height: 100%;
+    width: 30%;
+    background-color: ghostwhite;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 17px;
+  }
+}
+
+@media screen and (min-width: 377px) and (max-width: 426px) {
+  body {
+    height: auto;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #bde5e1;
+  }
+
+  main {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 1rem;
+  }
+
+  /* .container {
+    border: 1px solid red;
+  } */
+
+  .container-2 {
+    width: 100%;
+    /* margin-right: 2rem; */
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    height: 57rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .dropDown1 {
+    width: 100%;
+    min-height: 55rem;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem;
+    background-color: white;
+    border-radius: 5px;
+  }
+
+  .colorChange {
+    height: 10rem;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .colorChange p {
+    font-size: 17px;
+    letter-spacing: 1px;
+    word-spacing: 3px;
+  }
+
+  .result-details {
+    width: 100%;
+    height: 85%;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+  }
+  .result-details-left {
+    height: 100%;
+    width: 30%;
+    background-color: ghostwhite;
+    padding: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 17px;
+  }
 }

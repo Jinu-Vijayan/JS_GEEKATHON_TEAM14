@@ -18,11 +18,15 @@ const addedEdu = document.querySelector(".adding-education");
 const headColor = document.getElementById("headColor");
 const headTextColor = document.getElementById("headTextColor");
 const headerText = document.getElementById("headerText");
+const headerText1 = document.getElementById("headerText1");
+const number = document.getElementById("number");
+const email = document.getElementById("email");
+const locations = document.getElementById("location");
 
 const downLoad = document.getElementById("downLoad");
 
 function generatePDF() {
-  const element = document.getElementById("container-2");
+  const element = document.getElementById("dropDown1");
   console.log(element);
 
   html2pdf().from(element).save();
@@ -38,6 +42,10 @@ downLoad.addEventListener("click", () => {
 headTextColor.addEventListener("input", (e) => {
   let headTextColorVal = e.target.value;
   headerText.style.color = headTextColorVal;
+  headerText1.style.color = headTextColorVal;
+  number.style.color = headTextColorVal;
+  email.style.color = headTextColorVal;
+  locations.style.color = headTextColorVal;
 });
 
 // here Event Listener taking input color and adding into the headerColor Div as a backGroundColor
