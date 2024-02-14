@@ -2,7 +2,8 @@
 
 
 let array=[]
-
+const tBody = document.getElementById("table-body");
+let arrays=[];
 // add a dyanamic date in date portion
 let cdate=document.getElementById("cDate")
 
@@ -30,12 +31,11 @@ document.getElementById("add-row").addEventListener("click", (e)=> {
 
 // demo
 
-const tBody = document.getElementById("table-body");
 // let arrays=[];
 let addNewRow =()=> {
     const row = document.createElement("tr");
     row.className = "single-row";
-    row.innerHTML = `<td><input type="text" placeholder="Product name" class="product" id="product"></td>
+    row.innerHTML = `<input type="text" placeholder="Product name" class="product" id="product">
                     <td><input type="number" placeholder="0" name="unit" class="unit" id="unit" onkeyup="getInput()"></td>
                     <td><input type="number" placeholder="0" name="price" class="price" id="price" onkeyup="getInput()"></td>
                     <td><input type="number" placeholder="0" name="amount" class="amount" id="amount" disabled></td>
@@ -44,22 +44,18 @@ let addNewRow =()=> {
                     `
     // tBody.insertBefore(row, tBody.lastElementChild.previousSibling);
      tBody.append(row)
-    
 
-    //     prod_name=document.getElementById("product").value
-    // price=document.getElementById("price").value
-    // quantity=document.getElementById("unit").value
-  
-    
-    // document.getElementById('newtr').innerHTML += '<tr><td>'  + prod_name + '</td><td>' + price + '</td> <td>' + quantity + '</td><td>' + amount + '</td></tr>'
-  
+
+   
+
+   
    
     // document.getElementById("total").innerHTML = price * quantity ;
     // let total_answer=document.querySelector("#invoice .#sum #total").value
   
     //  document.getElementById("total").innerText=total_answer;
     //  document.getElementById("finalAmount").innerText=total_answer;
-        console.log(tBody.children);
+        // console.log(tBody.children);
     
    
 }
@@ -154,6 +150,44 @@ function share(){
     window.open("whatsapp://send?text="+"Total Amount Is : "+lastamount,"twitter window","width=600","height=300");
 
 }
+
+
+let reviewData=document.getElementById("review")
+reviewData.addEventListener('click',displayConent)
+
+function displayConent() {
+    var items = document.querySelectorAll(".single-row");
+
+    // let itemsContent = ""
+    items.forEach(function (item) {
+        var itemName = item.querySelector(".product").value;
+        var itemQty = item.querySelector("#unit").value;
+        var itemPrice = item.querySelector("#price").value;
+
+        let display=document.querySelector("#newtr")
+        let div2=document.createElement('div')
+        div2.classList.add('displayItems')
+        div2.innerHTML=`
+        <p>Product name : ${itemName}</p>
+        <p> Quantity :${itemQty}</p>
+        <p> Price : ${itemPrice}</p>
+        
+        `
+
+        display.append(div2)
+
+
+
+
+        
+
+       
+
+    })
+}
+    
+
+
 
 
 
